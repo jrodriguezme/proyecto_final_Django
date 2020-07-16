@@ -1,0 +1,17 @@
+
+{% block title %}
+Borrar Personal
+{% endblock %}
+
+{% block body %}
+<h2>Borrar Personal</h2>
+<h2>{{ object.apellido }}/ {{ object.nombre }}</h2>
+<form method="POST">
+	{% csrf_token %}
+	<p>Confirme si desea borrar a esta persona.</p>
+	<input type="submit" name="Confirmar">
+	<a href="../../">Cancelar</a>
+</form>
+{% endblock%}
+
+

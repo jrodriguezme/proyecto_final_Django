@@ -1,0 +1,16 @@
+
+{% block title %}
+Nuevo Personal
+{% endblock %}
+
+{% block body %}
+<h2>Nuevo Personal</h2>
+<form enctype="multipart/form-data" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" name="Grabar"><br><br>
+	<a href="../">Atras</a>
+</form>
+{% endblock%}
+
+

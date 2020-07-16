@@ -1,0 +1,16 @@
+
+{% block title %}
+Listando Personal
+{% endblock %}
+
+{% block body %}
+<h2>Listando Personal</h2>
+{% for instance in object_list %}
+	<p>{{ instance.id }}-
+		<a href='{{ instance.get_absolute_url }}'>{{ instance.nombre }}</a>
+	</p>
+{% endfor %}
+<a href="../">Regresar</a>
+<a href="create/">Crear nuevo</a>
+
+{% endblock%}

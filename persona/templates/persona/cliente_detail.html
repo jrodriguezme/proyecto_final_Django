@@ -1,0 +1,17 @@
+{% load static %}
+{% static "images" as baseUrl%}
+
+{% block title %}
+Detalle Personal
+{% endblock %}
+
+{% block body %}
+<h2>Detalle Personal</h2>
+<h3>{{ object.nombre }}/ {{ object.apellido }} </h3>
+<p>{{ object.edad }} años de edad</p>
+<p>
+<a href="update/">Editar</a>
+<a href="delete/">Eliminar</a>	
+<a href="../">Regresar a Personal</a>
+</p>
+{% endblock%}
