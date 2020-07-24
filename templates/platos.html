@@ -1,0 +1,99 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	<div class="container">
+	    <a class="navbar-brand" href="index.html">Feliciano</a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="oi oi-menu"></span> Menu
+	    </button>
+		<div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            	<li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+            	<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            	{% if user.is_authenticated %}            
+            		<li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
+            	{% else %}
+            		<li class="nav-item"><a href="/accounts/login" class="nav-link">Login</a></li>            
+            	{% endif %}
+            	{% if user.is_authenticated %}
+              		<li class="nav-item"><a href="/accounts/logout" class="nav-link">Logout</a></li>
+              		{% if user.is_staff %}
+                		<li class="nav-item"><a href="/accounts/administrar" class="nav-link">Administrar</a></li>
+              		{% endif %} 
+            	{% endif %}            
+            <li class="nav-item cta"><a href="reservation.html" class="nav-link">Book a table</a></li>
+	        </ul>
+	    </div>
+    </div>
+</nav>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+	<div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+        	<div class="col-md-9 ftco-animate text-center mb-4">
+            	{% if user.is_staff %}
+            		<h1 class="mb-2 bread">Platos</h1>
+            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
+            	{% else %}
+            		<h1 class="mb-2 bread">Usted no es Administrador</h1>
+            	{% endif %}
+          	</div>
+        </div>
+    </div>
+</section>
+<!--Contenido Principal de la Página-->
+{% if user.is_staff %}
+	<section class="ftco-section ftco-wrap-about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+	    			<div class="featured-menus ftco-animate">
+						<div class="menu-img img">
+							<img src="{% static 'images/agregar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
+						</div>
+				        <div class="text text-center">
+			            	<h3><a href="agregar" style="margin-left: auto;margin-right: auto;">Agregar Plato</a></h3>
+				        </div>
+				    </div>
+				</div>
+				<div class="col-md-3">
+	    			<div class="featured-menus ftco-animate">
+						<div class="menu-img img">
+							<img src="{% static 'images/listar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
+						</div>
+				        <div class="text text-center">
+			            	<h3><a href="#" style="margin-left: auto;margin-right: auto;">Listar Platos</a></h3>
+				        </div>
+				    </div>
+				</div>
+				<div class="col-md-3">
+	    			<div class="featured-menus ftco-animate">
+						<div class="menu-img img">
+							<img src="{% static 'images/modificar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
+						</div>
+				        <div class="text text-center">
+			            	<h3><a href="#" style="margin-left: auto;margin-right: auto;">Modificar Platos</a></h3>
+				        </div>
+				    </div>
+				</div>
+				<div class="col-md-3">
+	    			<div class="featured-menus ftco-animate">
+						<div class="menu-img img">
+							<img src="{% static 'images/borrar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
+						</div>
+				        <div class="text text-center">
+			            	<h3><a href="#" style="margin-left: auto;margin-right: auto;">Borrar Plato</a></h3>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% else %}
+
+{% endif %}
+
+{% endblock %}
