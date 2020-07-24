@@ -53,7 +53,4 @@ def logout(request):
 	return redirect('/')
 
 def administrar(request):
-	return render(request, 'menu_persona.html')
-
-def base(request):
 	return render(request, 'base.html')

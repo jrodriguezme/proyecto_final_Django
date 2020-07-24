@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from accounts import views
-from accounts.views import administrar, base
+from accounts.views import administrar
 from .views import(
 	PersonalListView, PersonalDetailView, PersonalCreateView,
 	PersonalUpdateView, PersonalDeleteView,
@@ -29,7 +29,6 @@ app_name = 'persona'
  
 urlpatterns = [
     path('', views.administrar, name='administrar'),
-    path('base/', views.base, name='administrar'),
 
     path('personal/', PersonalListView.as_view(), name='personal-list'),
     path('personal/<int:pk>/', PersonalDetailView.as_view(), name='personal-detail'),
