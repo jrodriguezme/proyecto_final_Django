@@ -1,6 +1,8 @@
 {% extends 'base2.html' %}
 {% block content %}
 {% load static %}
+<!-- barra de navegacion -->
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
 	    <a class="navbar-brand" href="index.html">Feliciano</a>
@@ -44,56 +46,35 @@
         </div>
     </div>
 </section>
-<!--Contenido Principal de la Página-->
-{% if user.is_staff %}
-	<section class="ftco-section ftco-wrap-about">
+
+	<!-- formulario -->
+	<section class="ftco-section contact-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-	    			<div class="featured-menus ftco-animate">
-						<div class="menu-img img">
-							<img src="{% static 'images/agregar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
-						</div>
-				        <div class="text text-center">
-			            	<h3><a href="agregar" style="margin-left: auto;margin-right: auto;">Agregar Plato</a></h3>
+			<div class=" justify-content-center d-flex no-gutters">
+		        <div class="col-md-7 order-md-last ftco-animate makereservation ">
+			       	<div class="py-md-5">
+				       	<div class="heading-section ftco-animate mb-4">
+				         	<span class="subheading ml-4">Listado</span>
+				            <h2 class="mb-8">PLATOS REGISTRADOS</h2>
 				        </div>
-				    </div>
-				</div>
-				<div class="col-md-3">
-	    			<div class="featured-menus ftco-animate">
-						<div class="menu-img img">
-							<img src="{% static 'images/listar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
-						</div>
-				        <div class="text text-center">
-			            	<h3><a href="listar" style="margin-left: auto;margin-right: auto;">Listar Platos</a></h3>
+						<div class="form-group">
+						    {% block body %}
+							{% for instance in object_list %}
+								<p>{{ instance.id }}-
+									<a href='{{ instance.get_absolute_url }}'>{{ instance.nombre }}</a>
+								</p>
+							{% endfor %}
 				        </div>
-				    </div>
-				</div>
-				<div class="col-md-3">
-	    			<div class="featured-menus ftco-animate">
-						<div class="menu-img img">
-							<img src="{% static 'images/modificar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
-						</div>
-				        <div class="text text-center">
-			            	<h3><a href="modificar" style="margin-left: auto;margin-right: auto;">Modificar Platos</a></h3>
+				        <div class="col-md-12 mt-3">
+				           	<div class="form-group">	
+								<a href="agregar" class="btn btn-primary py-2 px-4 mr-4 mt-4">Crear nuevo</a>	
+								<a href="./" class="btn btn-primary py-2 px-4 mr-4 mt-4">Regresar</a>
+				           	</div>
 				        </div>
+				        {% endblock %}
 				    </div>
-				</div>
-				<div class="col-md-3">
-	    			<div class="featured-menus ftco-animate">
-						<div class="menu-img img">
-							<img src="{% static 'images/borrar.svg' %}" style="width:100px;height:100px;display: block;margin-left: auto;margin-right: auto;">
-						</div>
-				        <div class="text text-center">
-			            	<h3><a href="eliminar" style="margin-left: auto;margin-right: auto;">Borrar Plato</a></h3>
-				        </div>
-				    </div>
-				</div>
+			    </div>
 			</div>
 		</div>
 	</section>
-{% else %}
-
-{% endif %}
-
 {% endblock %}

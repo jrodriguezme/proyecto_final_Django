@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Platos
+from django.urls import reverse_lazy
 from django.views.generic import (
 	ListView,
 	DetailView,
@@ -24,11 +25,21 @@ class agregar(CreateView):
 	]
 class detalles(DetailView):
 	model=Platos
-def listar(request):
-	return render(request,'listarPlato.html')
+class listar(ListView):
+	model=Platos
 
-def modificar(request):
-	return render(request,'modificarPlato.html')
+class modificar(UpdateView):
+	model = Platos
+	fields = [
+		'nombre',
+		'ciudad',
+		'descripcion',
+		'imagen',
+		'portada',
+		'oferta',
+	]
+	template_name_suffix = '_update_form'
 
-def eliminar(request):
-	return render(request,'eliminarPlato.html')
+class eliminar(DeleteView):
+	model = Platos
+	success_url = reverse_lazy('platos:listar_platos')
