@@ -16,13 +16,14 @@ class agregar(CreateView):
 	model = Platos
 	fields = [
 		'nombre',
-		'region',
+		'ciudad',
 		'descripcion',
 		'imagen',
-		'exclusico',
+		'portada',
 		'oferta',
 	]
-
+class detalles(DetailView):
+	model=Platos
 def listar(request):
 	return render(request,'listarPlato.html')
 
