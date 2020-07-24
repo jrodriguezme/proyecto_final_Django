@@ -55,3 +55,5 @@ def logout(request):
 def administrar(request):
 	return render(request, 'menu_persona.html')
 
+def base(request):
+	return render(request, 'base.html')

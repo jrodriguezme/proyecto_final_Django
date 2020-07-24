@@ -32,9 +32,9 @@ class Cliente(models.Model):
 	id_dni = models.IntegerField()
 	edad = models.IntegerField(default=False)
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')
-	direc = models.CharField(max_length=100, default=False)
+	direc = models.CharField(max_length=100, default='No requiere delibery')
 	vip = models.BooleanField(default=False)
-	especif_vip = models.CharField(max_length=100, default=False)
+	especif_vip = models.CharField(max_length=100, default='Ninguna')
 
 	def get_absolute_url(self):
 		return reverse('persona:cliente-detail', kwargs = {'pk': self.id})
