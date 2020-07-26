@@ -48,3 +48,9 @@ class modificar(UpdateView):
 class eliminar(DeleteView):
 	model = Platos
 	success_url = reverse_lazy('platos:listar_platos')
+
+def eliminar2(request):
+	model = Platos
+	object_list=Platos.objects.all()
+	success_url = reverse_lazy('platos:listar_platos')
+	return render(request,'platos/platos_eliminar.html',{'object_list':object_list})
