@@ -25,8 +25,13 @@ class agregar(CreateView):
 	]
 class detalles(DetailView):
 	model=Platos
+
 class listar(ListView):
 	model=Platos
+
+def modificar2(request):
+	object_list=Platos.objects.all()
+	return render(request,'platos/platos_modificar.html',{'object_list':object_list})
 
 class modificar(UpdateView):
 	model = Platos
