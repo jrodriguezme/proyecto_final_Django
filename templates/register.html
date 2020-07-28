@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sumaq Mikhuy Wasi</title>
+    <title>Registrarse</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -33,30 +33,44 @@
 
 	<!-- formulario -->
 	<section class="ftco-section contact-section">
-		<div class="container">
-			<div class=" justify-content-center d-flex no-gutters">
+		<div class="container-fluid px-0">
+			<div class="justify-content-center d-flex no-gutters">
 		        <div class="col-md-7 order-md-last ftco-animate makereservation ">
 			       	<div class="py-md-5">
-				       	<div class="heading-section ftco-animate mb-4">
-				         	<span class="subheading ml-4">Ingresar</span>
+				       	<div class="heading-section ftco-animate mb-5">
+				         	<span class="subheading ml-4">Registrarse</span>
 				            <h2 class="mb-8">Ingrese sus datos</h2>
 				        </div>
 				        <div class="col-md-6">
 				            <div class="form-group">
 				        	   	{% block body %}
-								<form action="login" method="post">
+								<form action="register" method="post">
 									{% csrf_token %}
-									<label for="">Ingrese su usuario:</label>
-									<input type="text" name="username" ><br>
-									<label for="">Ingrese su contraseña:</label>
-									<input type="password" name="password">
+									<label>Nombre:</label>
+									<input type="text" class="form-control" name="first_name" placeholder="Ingrese su nombre"><br>
+							
+									<label>Apellido:</label>
+									<input type="text" class="form-control" name="last_name" placeholder="Ingrese su apellido"><br>
+
+									<label>Usuario:</label>
+									<input type="text" class="form-control" name="username" placeholder="Ingrese un usuario"><br>
+
+									<label>Email:</label>
+									<input type="email" class="form-control" name="email" placeholder="Ingrese un correo"><br>
+
+									<label>Ingrese una contraseña:</label>
+									<input type="password" class="form-control" name="password1" placeholder="Ingrese contraseña"><br>
+
+									<label>Ingrese nuevamente su contraseña:</label>
+									<input type="password" class="form-control" name="password2" placeholder="Confirme contraseña"><br>
+
 						        	<div class="col-md-12 mt-3">
 						           		<div class="form-group"> 		
 				                   			<a href="../" class="btn btn-primary py-2 px-3 mr-4 mt-4">Regresar</a>
 											<input type="Submit" class="btn btn-primary py-2 px-3 mr-4 mt-4">
 						           		</div>
 						        	</div>
-						    	</form>
+						        </form>
 								{% for message in messages %}
 								<label>{{message}}</label>
 								{% endfor %}
@@ -164,4 +178,8 @@
     
     </body>
 </html>
+
+
+
+
 
