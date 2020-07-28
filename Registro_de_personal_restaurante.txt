@@ -2,9 +2,13 @@
 ===============================================
 
 Gerente : (2)
+- Rodriguez Mercado Jose  ---> acceso total
+- Choqueneira Ccasa Paulina ---> acceso total
 ================================================
 Jefe de almacen: (1) ----> id_trabajador: 987
-- 
+1. Samuel Ignacio Lopez Garcia
+dni: 02234567 
+
 ================================================
 Meseros: (10) ----> id_trabajador: 654
 1. Sebastian Jacobo Mendez Arel
