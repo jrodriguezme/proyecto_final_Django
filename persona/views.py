@@ -22,7 +22,8 @@ class PersonalCreateView(CreateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_dni',
+		'id_trabajo',
+		'dni',
 		'edad',
 		'sexo',
 		'telefono',

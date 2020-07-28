@@ -49,7 +49,7 @@
 					    </div>
               {% else %}
               <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
-                <p class="mb-0 register-link"><span>Abierto:</span> <span>Lunes - Domingo</span> <span>8:00AM - 9:00PM</span><br><span>Para tener acceso a las funciones de reserva de mesa, servicio a domicilio y otros debe estar registrado</span></p>
+                <p class="mb-0 register-link"><span>Abierto:</span> <span>Lunes - Domingo</span> <span>8:00AM - 9:00PM</span><br><span>Registrese para tener acceso a más funciones.</span></p>
               </div>
               {% endif %}                            
 				    </div>
@@ -74,6 +74,7 @@
             {% if user.is_authenticated %}            
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
             {% else %}
+            <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                        
             <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>            
             {% endif %}
             {% if user.is_authenticated %}

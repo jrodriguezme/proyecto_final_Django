@@ -13,7 +13,8 @@ class Personal(models.Model):
 
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
-	id_dni = models.IntegerField()
+	id_trabajo = models.IntegerField()
+	dni = models.IntegerField()
 	edad = models.IntegerField()
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')
 	telefono = models.IntegerField()

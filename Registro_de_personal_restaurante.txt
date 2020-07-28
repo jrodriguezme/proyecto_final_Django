@@ -1,0 +1,43 @@
+-- PERSONAL DE TRABAJO EN RESTAURANTE ----
+===============================================
+
+Gerente : (2)
+================================================
+Jefe de almacen: (1) ----> id_trabajador: 987
+- 
+================================================
+Meseros: (10) ----> id_trabajador: 654
+1. Sebastian Jacobo Mendez Arel
+dni: 70695422
+2. Miriam Rocio Suarez Bejar
+dni: 78698712
+3. Vin Xavier Ramos Diesel 
+dni: 23452311
+4. Juan Antonio Chavez Carpio
+dni: 22222556
+5. Shiomara Olenka Ruelas Morveli
+dni: 70224410
+6. Brayan Joel Tapia Sequeiros
+dni: 66543290
+7. Maycol Noel Torres Luque
+dni: 90887966
+8. Aedo Jheinner Cruz Mendizabal
+dni: 45362718
+9. Katherine Nicole Delgado Fuentes
+dni: 77765890
+10. Vania Pamela Mac Dorleen
+dni: 02234567
+
+================================================
+Bartender: (2) ----> id_trabajador: 321
+- Duanny Lucia Badilla Galdez
+dni: 21234567
+- Daniel Jesus Sanchez Brienos
+dni: 61122334
+
+================================================
+Hostess/recepcionista: 1 ----> id_trabajador: 001
+- Claudia Mariela Mendoza Zavar
+dni: 73384109
+
+
