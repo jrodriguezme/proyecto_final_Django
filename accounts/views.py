@@ -54,3 +54,6 @@ def logout(request):
 
 def administrar(request):
 	return render(request, 'base.html')
+
+def book(request):
+	return render(request, 'reservation.html') 
