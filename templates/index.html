@@ -68,8 +68,9 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="." class="nav-link">Inicio</a></li>
 	        	<li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
-	        	<li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-	      <!--<li class="nav-item"><a href="blog.html" class="nav-link">Stories</a></li>-->
+            <li class="nav-item"><a href="#menu" class="nav-link" data-scroll-to="#">Menu</a></li>
+	      <!--<li class="nav-item"><a href="accounts/platos" class="nav-link">Menu</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Stories</a></li>-->
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contactanos</a></li>
             {% if user.is_authenticated %}            
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
@@ -297,7 +298,7 @@
 			</div>
 		</section>
 
-    <section class="ftco-section">
+    <section class="ftco-section" id="menu">
     	<div class="container">
     		<div class="row no-gutters justify-content-center mb-5 pb-2">
           <div class="col-md-12 text-center heading-section ftco-animate">
@@ -512,7 +513,7 @@
 				<div class="row d-flex">
           <div class="col-md-7 ftco-animate makereservation p-4 px-md-5 pb-md-5">
           	<div class="heading-section ftco-animate mb-5 text-center">
-	          	<span class="subheading">Reserve una Mesa</span>
+	          	<span class="subheading">Reservar</span>
 	            <h2 class="mb-4">Haga una Reservación</h2>
 	          </div>
             <form action="#">

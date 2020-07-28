@@ -57,3 +57,6 @@ def administrar(request):
 
 def book(request):
 	return render(request, 'reservation.html') 
+
+def menu(request):
+	return render(request, 'platos.html') 
