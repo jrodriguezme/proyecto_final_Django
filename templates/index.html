@@ -59,7 +59,7 @@
     </div>
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href=".">Sumaq Mikhuy Wasi</a>
+	      <a class="navbar-brand" href=".">Sumaq<br> Mikhuy Wasi</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -67,21 +67,20 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="." class="nav-link">Inicio</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
+	        	<li class="nav-item"><a href="#we" class="nav-link"data-scroll-to="#">Nosotros</a></li>
             <li class="nav-item"><a href="#menu" class="nav-link" data-scroll-to="#">Menu</a></li>
-	      <!--<li class="nav-item"><a href="accounts/platos" class="nav-link">Menu</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Stories</a></li>-->
+	      <!--<li class="nav-item"><a href="accounts/platos" class="nav-link">Menu</a></li>-->
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contactanos</a></li>
             {% if user.is_authenticated %}            
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
             {% else %}
-            <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                        
+            <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                 
             <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>            
             {% endif %}
             {% if user.is_authenticated %}
             <li class="nav-item"><a href="accounts/logout" class="nav-link">Salir</a></li>
             <li class="nav-item"><a href="accounts/administrar" class="nav-link">Administrar</a></li>
-            <li class="nav-item cta"><a href="accounts/book" class="nav-link">Realizar una reserva</a></li>                        
+            <li class="nav-item cta"><a href="accounts/book" class="nav-link">Realizar una reserva</a></li>        
             {% endif%}            
 	        </ul>
 	      </div>
@@ -183,7 +182,7 @@
     </section>
 	
 
-		<section class="ftco-section ftco-wrap-about">
+		<section class="ftco-section ftco-wrap-about" id="we">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7 d-flex">
@@ -195,7 +194,7 @@
 	          	<span class="subheading">Restaurant</span>
 	            <h2 class="mb-4">Sumaq Mikhuy Wasi</h2>
 	          </div>
-	          <p>Queremos dar a conocer a nuestros clientes los diferentes tipos de platillos con los que contamos, que son hechos por diferentes cocineros con conocimiento en gastronomia de todo el Perú.</p>
+	          <p>Queremos dar a conocer a nuestros clientes los diferentes tipos de platillos con los que contamos, que son hechos por diferentes cocineros con conocimiento en gastronomia de todo el Perú y el mundo.</p>
 						<pc class="time">
 							<span>Lun - Vier <strong>8 AM - 9 PM</strong></span>
 							<span><a href="#">+51 921 648 514</a></span>
@@ -246,7 +245,7 @@
 	          </div>
           </div>
           <div class="col-md-3 text-center text-md-left">
-          	<p>Tenemos como lema cliente que requiera nuestros servicios, cliente que queda satisfecho.</p>
+          	<p>Tenemos como lema "Cliente que requiera nuestros servicios, cliente que queda satisfecho."</p>
           </div>
         </div>
     	</div>
@@ -507,11 +506,12 @@
 				</div>
 			</div>
 		</section>
-
+    
+    {% if user.is_authenticated %}            
 		<section class="ftco-section img" style="background-image: url({% static 'images/bg_3.jpg' %})" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row d-flex">
-          <div class="col-md-7 ftco-animate makereservation p-4 px-md-5 pb-md-5">
+          <div class="col-md-8 ftco-animate makereservation p-4 px-md-5 pb-md-5">
           	<div class="heading-section ftco-animate mb-5 text-center">
 	          	<span class="subheading">Reservar</span>
 	            <h2 class="mb-4">Haga una Reservación</h2>
@@ -574,7 +574,7 @@
         </div>
 			</div>
 		</section>
-		
+		{% endif %}
 		<section class="ftco-section testimony-section img">
 			<div class="overlay"></div>
       <div class="container">

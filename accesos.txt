@@ -1,0 +1,57 @@
+==== Funciones y accesos de las personas en el menu principal =======
+
+Cliente libre:
+-Inicio
+-Nosotros
+-Menu
+-Contactanos
+-Registrarse
+-Realizar comanda
+
+Cliente registrado:
+-Inicio
+-Menu
+-Contactanos
+-Hola, cliente
+-Delibery
+-Realizar comanda
+-Salir
+-Realizar reserva/confirmar y pagar
+
+Mozo:
+-Inicio
+-Menu
+-Comanda
+-Delibery
+
+Gerente:
+---Acceso a todo:
+-Inicio
+-Ventas del dia
+-Administrar
+-Inventario
+-Salir
+
+Recepcionista:
+-Inicio
+-Menu 
+-Reserva de mesa
+-Cuenta
+-Ventas del dia
+-Comanda
+
+Jefe de almacen:
+-Inicio
+-Menu
+-Proveedor
+-Inventario de muebleria
+-Inventario de cocina
+
+Bartender:
+-Inicio 
+-Menu
+-Licoreria
+-Cuenta
+-Ventas del dia
+
+
