@@ -75,7 +75,9 @@
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
             {% else %}
             <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                 
-            <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>            
+            <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Comanda</a></li>            
+
             {% endif %}
             {% if user.is_authenticated %}
             <li class="nav-item"><a href="accounts/logout" class="nav-link">Salir</a></li>

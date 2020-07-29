@@ -32,42 +32,42 @@
   <body>
 
 	<!-- formulario -->
-	<section class="ftco-section contact-section">
-		<div class="container-fluid px-0">
-			<div class="justify-content-center d-flex no-gutters">
-		        <div class="col-md-7 order-md-last ftco-animate makereservation ">
-			       	<div class="py-md-5">
-				       	<div class="heading-section ftco-animate mb-5">
-				         	<span class="subheading ml-4">Registrarse</span>
-				            <h2 class="mb-8">Ingrese sus datos</h2>
+	<section class="ftco-section img" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+		<div class="container col-md-7">
+			<div class=" justify-content-center d-flex no-gutters ">
+	    	    <div class="row col-md-8  makereservation p-12 p-md-5" style="background-color: #EFEACA">
+			       	<div class="py-md-4">
+				       	<div class="heading-section ftco-animate mb-4 col-md-14">
+				         	<span class="subheading pl-4" style="font-size: 85px">Registrarse</span>
+				            <h2 class="mb-8" style="font-size: 40px">Ingrese sus datos</h2>
 				        </div>
-				        <div class="col-md-6">
-				            <div class="form-group">
+				        <div class=" col-md-12">
+				            <div class="row form-group">
 				        	   	{% block body %}
 								<form action="register" method="post">
 									{% csrf_token %}
 									<label>Nombre:</label>
-									<input type="text" class="form-control" name="first_name" placeholder="Ingrese su nombre"><br>
+									<input type="text" class="form-control" name="first_name" placeholder="Ingrese su nombre">
 							
 									<label>Apellido:</label>
-									<input type="text" class="form-control" name="last_name" placeholder="Ingrese su apellido"><br>
+									<input type="text" class="form-control" name="last_name" placeholder="Ingrese su apellido">
 
 									<label>Usuario:</label>
-									<input type="text" class="form-control" name="username" placeholder="Ingrese un usuario"><br>
+									<input type="text" class="form-control" name="username" placeholder="Ingrese un usuario">
 
 									<label>Email:</label>
-									<input type="email" class="form-control" name="email" placeholder="Ingrese un correo"><br>
+									<input type="email" class="form-control" name="email" placeholder="Ingrese un correo">
 
 									<label>Ingrese una contraseña:</label>
-									<input type="password" class="form-control" name="password1" placeholder="Ingrese contraseña"><br>
+									<input type="password" class="form-control" name="password1" placeholder="Ingrese contraseña">
 
 									<label>Ingrese nuevamente su contraseña:</label>
-									<input type="password" class="form-control" name="password2" placeholder="Confirme contraseña"><br>
+									<input type="password" class="form-control" name="password2" placeholder="Confirme contraseña">
 
-						        	<div class="col-md-12 mt-3">
+						        	<div class="col-mb-5 mt-1 md-1">
 						           		<div class="form-group"> 		
-				                   			<a href="../" class="btn btn-primary py-2 px-3 mr-4 mt-4">Regresar</a>
-											<input type="Submit" class="btn btn-primary py-2 px-3 mr-4 mt-4">
+				                   			<a href="../" class="btn btn-primary py-2 px-3 ml-4 mr-3 mt-4">Regresar</a>
+											<input type="Submit" class="btn btn-primary py-2 px-3 ml-3 mt-4">
 						           		</div>
 						        	</div>
 						        </form>

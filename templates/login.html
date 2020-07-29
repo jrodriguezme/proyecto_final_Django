@@ -32,39 +32,40 @@
   <body>
 
 	<!-- formulario -->
-	<section class="ftco-section contact-section">
-		<div class="container">
-			<div class=" justify-content-center d-flex no-gutters">
-		        <div class="col-md-7 order-md-last ftco-animate makereservation ">
-			       	<div class="py-md-5">
-				       	<div class="heading-section ftco-animate mb-4">
-				         	<span class="subheading ml-4">Ingresar</span>
-				            <h2 class="mb-8">Ingrese sus datos</h2>
-				        </div>
-				        <div class="col-md-6">
-				            <div class="form-group">
-				        	   	{% block body %}
-								<form action="login" method="post">
-									{% csrf_token %}
-									<label for="">Ingrese su usuario:</label>
-									<input type="text" name="username" ><br>
-									<label for="">Ingrese su contraseña:</label>
-									<input type="password" name="password">
-						        	<div class="col-md-12 mt-3">
-						           		<div class="form-group"> 		
-				                   			<a href="../" class="btn btn-primary py-2 px-3 mr-4 mt-4">Regresar</a>
-											<input type="Submit" class="btn btn-primary py-2 px-3 mr-4 mt-4">
-						           		</div>
-						        	</div>
-						    	</form>
-								{% for message in messages %}
-								<label>{{message}}</label>
-								{% endfor %}
-							</div>
-				        </div>
-				        {% endblock%}
+	<section class="ftco-section img"  style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+			<div class="container col-md-7 ">
+				<div class=" justify-content-center d-flex no-gutters ">
+	    		    <div class="row col-md-8 makereservation p-8 p-md-5" style="background-color: #EFEACA">
+				       	<div class="py-md-4">
+					       	<div class="heading-section ftco-animate mb-4 col-md-14">
+					         	<span class="subheading pl-5" style="font-size: 80px">Ingresar</span>
+					            <h2 class="" style="font-size: 41px">Ingrese sus datos</h2>
+					        </div>
+					        <div class="row col-md-6">
+					            <div class="form-group">
+					        	   	{% block body %}
+									<form action="login" method="post">
+										{% csrf_token %}
+										<label for="">Ingrese su usuario:</label>
+										<input type="text" name="username" >
+										<label for="">Ingrese su contraseña:</label>
+										<input type="password" name="password">
+							        	<div class=" ml-5 mt-1 md-1 ">
+							           		<div class="form-group "> 		
+					                   			<a href="../" class="btn btn-primary py-2 px-4 mr-4 mt-4">Regresar</a>
+												<input type="Submit" value="Enviar" class="btn btn-primary py-2 px-3 mt-4">
+							           		</div>
+							        	</div>
+							    	</form>
+									{% for message in messages %}
+									<label>{{message}}</label>
+									{% endfor %}
+								</div>
+					        </div>
+					        {% endblock%}
+					    </div>
 				    </div>
-			    </div>
+				</div>
 			</div>
 		</div>
 	</section>
