@@ -88,15 +88,17 @@
 							<br> {{ object.nombre }} {{ object.apellido }}<br>
 							<label for="">EDAD:</label>
 							<br> {{ object.edad }} años<br>
+							<label for="">ID:</label>
+							<br> {{ object.id_cliente }}<br>
 							<label for="">SEXO:</label>
 							<br> {{ object.sexo }}<br>	
 							<label for="">DIRECCION:</label>
 							<br>
 							{% ifnotequal object.direc "No requiere delibery" %}
 							{{ object.direc }}<br>
-							Pedido por delibery.<br>
+							<label>*</label>Pedido por delibery.<br>
 							{% else %}
-							No adquirio el servicio de delibery<br>
+							<label>*</label>No adquirio el servicio de delibery<br>
 							{% endifnotequal %}
 							<label for="">CATEGORIA:</label>
 							<br>

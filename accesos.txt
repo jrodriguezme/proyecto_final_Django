@@ -38,8 +38,8 @@ Recepcionista:
 -Menu 
 -Reserva de mesa
 -Stock
--Cuenta
--Ventas del dia
+-Cuenta/comanda
+-Ventas del dia/reporte
 -Comanda
 -Salir
 

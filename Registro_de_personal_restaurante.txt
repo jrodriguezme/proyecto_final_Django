@@ -40,8 +40,10 @@ dni: 21234567
 dni: 61122334
 
 ================================================
-Hostess/recepcionista: 1 ----> id_trabajador: 001
+Hostess/recepcionista: 1 ----> id_trabajador: 111
 - Claudia Mariela Mendoza Zavar
 dni: 73384109
 
+===============================================
+Cliente: ----> id_cliente: 222
 

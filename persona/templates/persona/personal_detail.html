@@ -86,10 +86,12 @@
 						    {% block body %}
 							<label for="">NOMBRE Y APELLIDO:</label>
 							<br> {{ object.nombre }} {{ object.apellido }}<br>
+							<label for="">ID DE TRABAJADOR:</label>
+							<br> {{ object.id_trabajo }}<br>							
 							<label for="">EDAD:</label>
 							<br> {{ object.edad }} años<br>
 							<label for="">TELEFONO:</label>
-							<br> {{ object.telefono }}<br>							
+							<br> {{ object.telefono }}<br>	
 							<label for="">CAPACITACION ESPECIALIZADA:</label>
 							<br>
 							{% if cap_esp %}

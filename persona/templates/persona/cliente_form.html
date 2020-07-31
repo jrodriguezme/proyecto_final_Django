@@ -73,7 +73,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -93,7 +93,7 @@
 			       	<div class="py-md-5">
 				       	<div class="heading-section ftco-animate mb-5">
 				         	<span class="subheading">.   Registrar</span>
-				            <h2 class="mb-4">NUEVO PERSONAL</h2>
+				            <h2 class="mb-4">NUEVO CLIENTE</h2>
 				        </div>
 				        {% block body %}
 				        <form method="POST">
@@ -113,8 +113,8 @@
 				                </div>				                
 				                <div class="col-md-6">
 			                        <div class="form-group">
-				  	                    <label for="">Id o DNI:</label>
-				     	                {{ form.id_dni }}
+				  	                    <label for="">DNI:</label>
+				     	                {{ form.dni }}
 				          	        </div>
 				                </div>			                
 				                <div class="col-md-6">
@@ -128,7 +128,8 @@
 				     	                <label for="">Edad:</label>
 				     	                {{ form.edad }}
 				                    </div>
-				                </div>					                
+				                </div>
+				     	        {{ form.id_cliente.as_hidden }}
 				                <div class="col-md-6">
 				                  	<div class="form-group">
 				                    	<label for="">Direccion:</label>
@@ -150,7 +151,7 @@
 				                <div class="col-md-12 mt-3">
 				                	<div class="form-group">
 				                    	<a href="../" class="btn btn-primary py-3 px-5 mr-5">Atras</a>
-				                    	<input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
+				                    	<input type="Submit" name="Grabar" class="btn btn-primary py-3 px-5">
 				                  	</div>
 				                </div>
 				            </div>
@@ -251,8 +252,6 @@
 	<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
 	<script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
 	<script src="{% static 'js/scrollax.min.js' %}"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="{% static 'js/google-map.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
     
     </body>

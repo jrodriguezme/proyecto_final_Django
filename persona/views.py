@@ -37,7 +37,8 @@ class PersonalUpdateView(UpdateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_dni',
+		'id_trabajo',
+		'dni',
 		'edad',
 		'sexo',
 		'telefono',
@@ -66,7 +67,8 @@ class ClienteCreateView(CreateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_dni',
+		'id_cliente',
+		'dni',
 		'edad',
 		'sexo',
 		'direc',
@@ -79,7 +81,8 @@ class ClienteUpdateView(UpdateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_dni',
+		'id_cliente',
+		'dni',
 		'edad',
 		'sexo',
 		'direc',
