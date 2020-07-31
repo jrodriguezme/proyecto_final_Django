@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from platos.models import Platos
 # Create your views here.
 
 def index(request):
-	return render(request,'index.html')
+	platos=Platos.objects.all()
+	return render(request,'index.html',{'platos':platos})

@@ -7,6 +7,7 @@ class Platos(models.Model):
 	ciudad		= models.CharField(max_length=100)
 	descripcion	= models.TextField()
 	imagen		= models.ImageField(upload_to='images')
+	precio		= models.FloatField()
 	portada 	= models.BooleanField(default=False)
 	oferta		= models.BooleanField(default=False)
 	def get_absolute_url(self):
