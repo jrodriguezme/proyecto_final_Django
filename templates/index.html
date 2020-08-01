@@ -67,23 +67,20 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="." class="nav-link">Inicio</a></li>
-	        	<li class="nav-item"><a href="#we" class="nav-link"data-scroll-to="#">Nosotros</a></li>
-            <li class="nav-item"><a href="#menu" class="nav-link" data-scroll-to="#">Menu</a></li>
-	      <!--<li class="nav-item"><a href="accounts/platos" class="nav-link">Menu</a></li>-->
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contactanos</a></li>
+	        	<li class="nav-item"><a href="/nosotros" class="nav-link"data-scroll-to="#">Nosotros</a></li>
+            <li class="nav-item"><a href="/menu" class="nav-link" data-scroll-to="#">Menu</a></li>
+	          <li class="nav-item"><a href="/contactanos" class="nav-link">Contactanos</a></li>
             {% if user.is_authenticated %}            
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
             {% else %}
             <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                 
-            <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Comanda</a></li>            
-
+            <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>            
             {% endif %}
             {% if user.is_authenticated %}
             <li class="nav-item"><a href="accounts/logout" class="nav-link">Salir</a></li>
-            <li class="nav-item"><a href="accounts/administrar" class="nav-link">Administrar</a></li>
-            <li class="nav-item cta"><a href="accounts/book" class="nav-link">Realizar una reserva</a></li>        
-            {% endif%}            
+            <li class="nav-item"><a href="accounts/administrar" class="nav-link">Administrar</a></li>      
+            {% endif%}
+            <li class="nav-item cta"><a href="#" class="nav-link">Reservar Mesa</a></li>            
 	        </ul>
 	      </div>
 	    </div>
