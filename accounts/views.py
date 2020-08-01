@@ -8,7 +8,7 @@ def login(request):
 		username = request.POST['username']
 		password = request.POST['password']
 
-		user = auth.authenticate(username=username, password=password)		
+		user = auth.authenticate(username=username, password=password )		
 
 		if user is not None:
 			auth.login(request, user)
@@ -58,5 +58,43 @@ def administrar(request):
 def book(request):
 	return render(request, 'reservation.html') 
 
-def menu(request):
+def menu(request): 
 	return render(request, 'platos.html') 
+
+def id(request): 
+	if request.method == 'POST':
+		id_user = request.POST['id_user']
+
+		if id_user == '999':
+			return redirect("login")
+			return render(request, 'login.html')
+			
+		elif id_user == '987':
+			return redirect("loginExtra")			
+			return render(request, 'loginExtra.html')
+
+		elif id_user == '654':
+			return redirect("loginExtra")
+			return render(request, 'loginExtra.html')
+
+		elif id_user == '321':
+			return redirect("loginExtra")
+			return render(request, 'loginExtra.html')
+
+		elif id_user == '111':
+			return redirect("loginExtra")
+			return render(request, 'loginExtra.html')
+
+		elif id_user == '222':
+			return redirect("loginExtra")
+			return render(request, 'loginExtra.html')
+
+		else:
+			messages.info(request, 'El id no existe. Intente nuevamente.')
+			return redirect('id')
+	else:
+		return render(request, 'id.html') 
+
+
+def loginExtra(request): 
+	return render(request, 'loginExtra.html') 

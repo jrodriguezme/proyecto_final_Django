@@ -1,7 +1,7 @@
 -- PERSONAL DE TRABAJO EN RESTAURANTE ----
 ===============================================
 
-Gerente : (2)
+Gerente : (2) --->999
 - Rodriguez Mercado Jose  ---> acceso total
 - Choqueneira Ccasa Paulina ---> acceso total
 ================================================
