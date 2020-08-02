@@ -10,5 +10,4 @@ urlpatterns = [
     path("platos", views.menu, name="platos"),
     path("id", views.id, name="id"),    
     path("loginExtra", views.loginExtra, name="loginExtra"),    
-
 ] 
