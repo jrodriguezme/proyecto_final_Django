@@ -12,8 +12,8 @@ def login(request):
 
 		if user is not None:
 			auth.login(request, user)
-			return redirect("/")
-		else:
+			return redirect('gerente')
+		else: 
 			messages.info(request, 'Datos erroneos')
 			return redirect('login')
 	else:
@@ -98,3 +98,6 @@ def id(request):
 
 def loginExtra(request): 
 	return render(request, 'loginExtra.html') 
+
+def gerente(request):
+	return render(request, 'indexGerente.html')	

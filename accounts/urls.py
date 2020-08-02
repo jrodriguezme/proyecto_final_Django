@@ -10,4 +10,5 @@ urlpatterns = [
     path("platos", views.menu, name="platos"),
     path("id", views.id, name="id"),    
     path("loginExtra", views.loginExtra, name="loginExtra"),    
+    path("gerente", views.gerente, name="gerente"),        
 ] 
