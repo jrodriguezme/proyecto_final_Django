@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from platos.models import Platos
 from persona.models import Personal
+
 # Create your views here.
 
 def index(request):
 	platos=Platos.objects.all()
 	personal=Personal.objects.all()
-	return render(request,'index.html',{'platos':platos,'personal':personal})
+	numeroPersonal = Personal.objects.count()+1
+	return render(request,'index.html',{'platos':platos,'personal':personal,'numeroPersonal':numeroPersonal})
 def nosotros(request):
 	return render(request,'about.html')
 

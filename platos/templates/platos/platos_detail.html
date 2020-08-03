@@ -69,8 +69,7 @@
 						<label for="">PRECIO:</label>
 						<br> {{ object.precio }}<br>							
 						<label for="">IMAGEN DEL PLATO:</label>
-						<br> {{ object.imagen }}<br>
-						<img src="{{object.imagen.url}}" alt="">
+						<img src="{{object.imagen.url}}" width=100% height=100%>
 						<br>
 						{% if object.portada %}
 						El plato es un plato de portada

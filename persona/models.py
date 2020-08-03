@@ -8,12 +8,22 @@ genero = (
        ('masculino', 'MASCULINO'),
        ('otro','Prefiero no decirlo'),
 )
+puesto = (
+	('administrador','ADMINISTRADOR'),
+	('jefe de cocina','JEFE DE COCINA'),
+	('recepcionista','RECEPCIONISTA'),
+	('cajero','CAJERO'),
+	('mesero','MESERO'),
+	('cocinero','COCINERO'),
+	('otro','VARIOS'),
+	)
 
 class Personal(models.Model):
 
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
 	id_trabajo = models.IntegerField()
+	cargo = models.CharField(max_length=100, choices=puesto, default='otro')
 	dni = models.IntegerField()
 	edad = models.IntegerField()
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')
@@ -21,6 +31,7 @@ class Personal(models.Model):
 	direc = models.CharField(max_length=100)
 	correo = models.CharField(max_length=50)
 	cap_esp = models.BooleanField(default=False)
+	imagen = models.ImageField(upload_to='persona',default='persona/sin_imagen.jpg') 
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})

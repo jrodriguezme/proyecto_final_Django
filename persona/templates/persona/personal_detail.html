@@ -87,7 +87,9 @@
 							<label for="">NOMBRE Y APELLIDO:</label>
 							<br> {{ object.nombre }} {{ object.apellido }}<br>
 							<label for="">ID DE TRABAJADOR:</label>
-							<br> {{ object.id_trabajo }}<br>							
+							<br> {{ object.id_trabajo }}<br>
+							<label for="">CARGO DE TRABAJADOR:</label>
+							<br> {{ object.cargo }}<br>								
 							<label for="">EDAD:</label>
 							<br> {{ object.edad }} años<br>
 							<label for="">TELEFONO:</label>
@@ -99,6 +101,8 @@
 							{% else %}
 							El personal no cuenta con especializaciones.</h3>
 							{% endif %}
+							<label for="">FOTO DEL TRABAJADOR:</label>
+							<img src="{{object.imagen.url}}" width=100% height=100%>	
 				        </div>
 				        <div class="col-md-12 mt-3">
 				           	<div class="form-group"> 		

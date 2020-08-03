@@ -23,6 +23,7 @@ class PersonalCreateView(CreateView):
 		'nombre',
 		'apellido',
 		'id_trabajo',
+		'cargo',
 		'dni',
 		'edad',
 		'sexo',
@@ -30,6 +31,7 @@ class PersonalCreateView(CreateView):
 		'direc',
 		'correo',
 		'cap_esp',
+		'imagen',
 	]
 
 class PersonalUpdateView(UpdateView):
@@ -38,6 +40,7 @@ class PersonalUpdateView(UpdateView):
 		'nombre',
 		'apellido',
 		'id_trabajo',
+		'cargo',
 		'dni',
 		'edad',
 		'sexo',
@@ -45,6 +48,7 @@ class PersonalUpdateView(UpdateView):
 		'direc',
 		'correo',
 		'cap_esp',
+		'imagen',
 	]
 	template_name_suffix = '_update_form'
 

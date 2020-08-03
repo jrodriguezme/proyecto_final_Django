@@ -83,12 +83,22 @@
 				            <h2 class="mb-8">PERSONAL REGISTRADO</h2>
 				        </div>
 						<div class="form-group">
-						    {% block body %}
-							{% for instance in object_list %}
-								<p>{{ instance.id }}-
-									<a href='{{ instance.get_absolute_url }}'>{{instance.apellido}}, {{ instance.nombre }}</a>
-								</p>
-							{% endfor %}
+							<table>
+								<tr>
+									<th>Id</th>
+									<th>Nombres</th>
+									<th>Cargo</th>
+								</tr>
+								{% block body %}
+								{% for instance in object_list %}
+									<tr>
+										<td>{{ instance.id }}</td>
+										<td><a href='{{ instance.get_absolute_url }}'>{{instance.apellido}}, {{ instance.nombre }}</a></td>
+										<td><span>{{instance.cargo}}</span></td>
+									</tr>
+								{% endfor %}
+							</table>
+						    
 				        </div>
 				        <div class="col-md-12 mt-3">
 				           	<div class="form-group">	
