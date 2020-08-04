@@ -25,7 +25,7 @@ Mozo:
 -Delibery
 -Salir
 
-Gerente:
+Dueños:
 ---Acceso a todo:
 -Inicio
 -Ventas del dia
@@ -33,7 +33,15 @@ Gerente:
 -Inventario
 -Salir
 
-Recepcionista:
+Administrador:
+---Acceso a casi todo:
+-Inicio
+-Ventas del dia
+-Administrar
+-Inventario
+-Salir
+
+Cajero:
 -Inicio
 -Menu 
 -Reserva de mesa
@@ -44,6 +52,14 @@ Recepcionista:
 -Salir
 
 Jefe de almacen:
+-Inicio
+-Menu
+-Proveedor
+-Inventario de muebleria
+-Inventario de cocina
+-Salir
+
+Jefe de cocina:
 -Inicio
 -Menu
 -Proveedor
