@@ -10,14 +10,20 @@ def Bartender(request):
 def CRegistrado(request):
 	return render(request, 'indexCRegistrado.html')
 
-def Hostess(request):
-	return render(request, 'indexHostess.html')
+def Cajero(request):
+	return render(request, 'indexCajero.html')
 
 def JAlmacen(request):
 	return	render(request, 'indexJAlmacen.html')
 
 def Mozo(request):
 	return render(request, 'indexMozo.html')	
+
+def JCocina(request):
+	return render(request, 'indexJCocina.html')	
+
+def Administrador(request):
+	return render(request, 'indexAdministrador.html')	
 
 def loginExtra(request):
 	if request.method == 'POST':
@@ -34,13 +40,18 @@ def loginExtra(request):
 
 
 		if usuario is not None:
-			#Usuario.loginExtra(request, usuario)
-			if id_user == '222':
+			if id_user == '987':
 				return redirect('JAlmacen')
 
-			elif id_user == '987':
-				return redirect('CRegistrado')
+			elif id_user == '990':
+				return redirect('Administrador')
+			
+			elif id_user == '988':
+				return redirect('JCocina')
 
+			elif id_user == '222':
+				return redirect('CRegistrado')
+			
 			elif id_user == '654':
 				return redirect('Mozo')	
 
@@ -48,7 +59,7 @@ def loginExtra(request):
 				return redirect('Bartender')	
 
 			elif id_user == '111':
-				return redirect('Hostess')
+				return redirect('Cajero')
 			
 			else:
 				messages.info(request, 'Algùn dato es incorrecto. Vuelva a intentarlo.')
@@ -58,3 +69,7 @@ def loginExtra(request):
 			return redirect('loginExtra')
 	else:
 		return render(request,'loginExtra.html')		
+
+
+def registerExtra(request):
+	return render(request, 'registerExtra.html')		

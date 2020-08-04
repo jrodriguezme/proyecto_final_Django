@@ -18,7 +18,7 @@ puesto = (
 	('bartender','BARTENDER'),
 	('cocinero','COCINERO'),
 	('otro','VARIOS'),
-	)
+)
 
 class Personal(models.Model):
 
