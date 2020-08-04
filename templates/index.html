@@ -315,12 +315,14 @@
           </div>
         </div>	
 				<div class="row">
+          {% for persona in personal %}
+          {% if persona.cargo == "jefe de cocina" %}
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
-							<div class="img" style="background-image: url({% static 'images/chef-4.jpg' %});"></div>
+							<div class="img" style="background-image: url({{ persona.imagen.url }} );"></div>
 							<div class="text pt-4">
-								<h3>John Smooth</h3>
-								<span class="position mb-2">Restaurant Owner</span>
+								<h3>{{persona.nombre}} {{persona.apellido}}</h3>
+								<span class="position mb-2">{{persona.cargo}}</span>
 								<div class="faded">
 									<ul class="ftco-social d-flex">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -332,57 +334,27 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img" style="background-image: url({% static 'images/chef-2.jpg' %});"></div>
-							<div class="text pt-4">
-								<h3>Rebeca Welson</h3>
-								<span class="position mb-2">Head Chef</span>
-								<div class="faded">
-									<ul class="ftco-social d-flex">
-		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img" style="background-image: url({% static 'images/chef-3.jpg' %});"></div>
-							<div class="text pt-4">
-								<h3>Kharl Branyt</h3>
-								<span class="position mb-2">Chef</span>
-								<div class="faded">
-									<ul class="ftco-social d-flex">
-		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img" style="background-image: url({% static 'images/chef-1.jpg' %});"></div>
-							<div class="text pt-4">
-								<h3>Luke Simon</h3>
-								<span class="position mb-2">Chef</span>
-								<div class="faded">
-									<ul class="ftco-social d-flex">
-		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
+          {% endif %}
+          {% if persona.cargo == "cocinero" %}
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="staff">
+              <div class="img" style="background-image: url({{ persona.imagen.url }} );"></div>
+              <div class="text pt-4">
+                <h3>{{persona.nombre}} {{persona.apellido}}</h3>
+                <span class="position mb-2">{{persona.cargo}}</span>
+                <div class="faded">
+                  <ul class="ftco-social d-flex">
+                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
 				</div>
 			</div>
 		</section>

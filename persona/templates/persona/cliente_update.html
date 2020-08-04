@@ -96,7 +96,7 @@
 				            <h2 class="mb-4">NUEVO PERSONAL</h2>
 				        </div>
 				        {% block body %}
-				        <form method="POST">
+				        <form enctype="multipart/form-data" action method="post" id="updateCliente" novalidate>
 				        	{% csrf_token %}
 				            <div class="row">
 				                <div class="col-md-6">
