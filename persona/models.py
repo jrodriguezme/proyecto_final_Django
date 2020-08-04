@@ -11,9 +11,11 @@ genero = (
 puesto = (
 	('administrador','ADMINISTRADOR'),
 	('jefe de cocina','JEFE DE COCINA'),
+	('jefe de almacen','JEFE DE ALMACEN'),
 	('recepcionista','RECEPCIONISTA'),
 	('cajero','CAJERO'),
 	('mesero','MESERO'),
+	('bartender','BARTENDER'),
 	('cocinero','COCINERO'),
 	('otro','VARIOS'),
 	)

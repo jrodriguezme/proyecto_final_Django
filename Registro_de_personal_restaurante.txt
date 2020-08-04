@@ -1,13 +1,34 @@
 -- PERSONAL DE TRABAJO EN RESTAURANTE ----
 ===============================================
 
-Gerente : (2) --->999
+Dueños : (2) ---> id_user: 999
 - Rodriguez Mercado Jose  ---> acceso total
 - Choqueneira Ccasa Paulina ---> acceso total
+
+================================================
+Administrador : (2) --->id_user: 990
+- Rodriguez Mercado Jose  ---> acceso total
+- Choqueneira Ccasa Paulina ---> acceso total
+
+================================================
+Jefe de cocina: (1) ----> id_trabajador: 988
+1. Samuel Ignacio Lopez Garcia
+dni: 02234567 
+
 ================================================
 Jefe de almacen: (1) ----> id_trabajador: 987
 1. Samuel Ignacio Lopez Garcia
 dni: 02234567 
+
+================================================
+Hostess/recepcionista:(4) ---> 
+- Claudia Mariela Mendoza Zavar
+dni: 73384109
+
+================================================
+Cajero: (2) ----> id_trabajador: 111
+- Claudia Mariela Mendoza Zavar
+dni: 73384109
 
 ================================================
 Meseros: (10) ----> id_trabajador: 654
@@ -40,9 +61,12 @@ dni: 21234567
 dni: 61122334
 
 ================================================
-Hostess/recepcionista: 1 ----> id_trabajador: 111
+Cocineros: 1 ---->
 - Claudia Mariela Mendoza Zavar
 dni: 73384109
+
+===============================================
+Otros personales: ----> 
 
 ===============================================
 Cliente: ----> id_cliente: 222

@@ -69,6 +69,14 @@ def id(request):
 			return redirect("login")
 			return render(request, 'login.html')
 			
+		elif id_user == '990':
+			return redirect("loginExtra")			
+			return render(request, 'loginExtra.html')
+
+		elif id_user == '988':
+			return redirect("loginExtra")			
+			return render(request, 'loginExtra.html')
+
 		elif id_user == '987':
 			return redirect("loginExtra")			
 			return render(request, 'loginExtra.html')
