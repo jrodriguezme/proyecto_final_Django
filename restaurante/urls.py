@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('platos/', include('platos.urls')),
     path('usuario/', include('usuario.urls')),
+    path('comandas/',include('comandas.urls'))
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'platos',
     'usuario',
     'reporte',
+    'comandas',
 ]
 
 MIDDLEWARE = [
