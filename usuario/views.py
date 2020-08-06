@@ -27,14 +27,14 @@ def Administrador(request):
 
 def loginExtra(request):
 	if request.method == 'POST':
-		id_user = request.POST['id_user']
+		id_trabajo = request.POST['id_user']
 		dni 	= request.POST['username']
 		password= request.POST['password']
 
 		#usuario = Usuario.objects.get(username=dni, password=password, id_user=id_user)		
 		#usuario = Usuario.authenticate(username=dni, password=password, id_user=id_user)		
 		try:
-		    usuario = Usuario.objects.get(username=dni, password=password, id_user=id_user)
+		    usuario = Usuario.objects.get(username=dni, password=password, id_user=id_trabajo)
 		except Usuario.DoesNotExist:
 			usuario = None
 

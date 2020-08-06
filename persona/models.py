@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+#from usuario.models import Usuario
 # Create your models here.
 
 genero = (

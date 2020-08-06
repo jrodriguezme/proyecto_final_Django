@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+# from django.contrib.auth import password_reset
+ 
 urlpatterns = [
 	path('', include('feliciano.urls')),
     path('admin/', admin.site.urls),
@@ -25,7 +26,15 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('platos/', include('platos.urls')),
     path('usuario/', include('usuario.urls')),
-    path('comandas/',include('comandas.urls'))
-]
+    path('comandas/',include('comandas.urls')),
+#     path("reset/password_reset", password_reset, {'template_name':'registration/password_reset_form.html', 
+#         'email_template': 'usuario/password_reset_email.html'}, name='password_reset'),        
+#     path("reset/password_reset_done", views.password_reset_done, {'template_name':'usuario/password_reset_done.html'}, 
+#         name="password_reset_done"),          
+#     path("reset/(?P<uidb64>[0-9A-Za-z\-+])/(?P<token>.+)/$", views.password_reset.confirm, 
+#         {'template_name':'usuario/password_reset_confirm.html' }, name="password_reset_confirm"),
+#     path("reset/done", auth_views.password_reset_complete, 
+#         {'template_name':'usuario/password_reset_complete.html'}, name="password_reset_complete"),  
+ ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
