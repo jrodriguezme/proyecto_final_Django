@@ -9,9 +9,9 @@ genero = (
        ('otro','Prefiero no decirlo'),
 )
 puesto = (
-	('administrador','ADMINISTRADOR'),
-	('jefe de cocina','JEFE DE COCINA'),
-	('jefe de almacen','JEFE DE ALMACEN'),
+	('100','ADMINISTRADOR'),
+	('101','JEFE DE COCINA'),
+	('102','JEFE DE ALMACEN'),
 	('recepcionista','RECEPCIONISTA'),
 	('cajero','CAJERO'),
 	('mesero','MESERO'),
@@ -25,7 +25,7 @@ class Personal(models.Model):
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
 	cargo = models.CharField(max_length=100, choices=puesto, default='otro')
-	id_trabajo = models.IntegerField(default=100)	
+	id_trabajo = models.CharField(max_length=100)	
 	dni = models.IntegerField()
 	edad = models.IntegerField()
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')

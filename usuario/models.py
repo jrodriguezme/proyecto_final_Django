@@ -5,5 +5,6 @@ from persona.models import Personal
 class Usuario(models.Model):
 	id_trabajo = models.CharField(max_length=100)
 	cargo = models.CharField(max_length=100)
-	username = models.ForeignKey(Personal, on_delete=models.CASCADE)
-	password = make_password('')
+	username = models.CharField(max_length=100)
+	#username = models.ForeignKey(Personal, on_delete=models.CASCADE)
+	password = models.CharField(max_length=100)

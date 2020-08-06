@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.utils import timezone
 from django.apps import apps
 # Create your models here.
 # genero = (
@@ -11,9 +12,10 @@ from django.apps import apps
 def contador():
 	Formato=apps.get_model(app_label='comandas',model_name='Formato')
 	return Formato.objects.count()
+	
 class Formato(models.Model):
 	#numero_comanda		= models.IntegerField(default=contador())
-	fecha_hoy			= models.DateTimeField(default = datetime.date.today())
+	fecha_hoy			= datetime.date.today()
 	numero_mesa			= models.IntegerField()
 	numero_comensales	= models.IntegerField()
 	id_camarero			= models.CharField(max_length=100)
