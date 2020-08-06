@@ -20,12 +20,15 @@ puesto = (
 	('otro','VARIOS'),
 )
 
+#class Cargo(models.Model):
+#	id_user = models.OneToOneField('Personal', on_delete=models.CASCADE)
+
 class Personal(models.Model):
 
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
-	cargo = models.CharField(max_length=100, choices=puesto, default='otro')
-	id_trabajo = models.CharField(max_length=100)	
+	cargo = models.CharField(max_length=100, choices=puesto, default='otro')	
+	id_trabajo = 210
 	dni = models.CharField(max_length=100)
 	edad = models.IntegerField()
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')
@@ -34,17 +37,18 @@ class Personal(models.Model):
 	correo = models.CharField(max_length=50)
 	cap_esp = models.BooleanField(default=False)
 	imagen = models.ImageField(upload_to='persona',default='persona/sin_imagen.jpg') 
-	password = models.CharField(max_length=50)
+	password = models.CharField(max_length=50, default='sumaq123')
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})
+	
 
 
 class Cliente(models.Model):
 
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
-	id_cliente = models.IntegerField(default=222)
+	id_cliente = 222
 	dni = models.IntegerField()
 	edad = models.IntegerField(default=False)
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')

@@ -50,11 +50,4 @@ urlpatterns = [
 
     path('personal/loginExtra/', loginExtra, name="loginExtra"),
     path('personal/registerExtra/', registerExtra, name="registerExtra"), 
-#     path('personal/CRegistrado/', CRegistrado, name="CRegistrado"),
-#     path('personal/Bartender/', Bartender, name="Bartender"),
-#     path('personal/Cajero/', Cajero, name="Cajero"),
-#     path('personal/JAlmacen/', JAlmacen, name="JAlmacen"),
-#     path('personal/JCocina/', Mozo, name="JCocina"),
-#     path('personal/Administrador/', Administrador, name="Administrador"),
-#     path('personal/Mozo/', Mozo, name="Mozo"),
 ]

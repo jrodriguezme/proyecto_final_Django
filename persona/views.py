@@ -24,7 +24,6 @@ class PersonalCreateView(CreateView):
 		'nombre',
 		'apellido',
 		'cargo',
-		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -42,7 +41,6 @@ class PersonalUpdateView(UpdateView):
 		'nombre',
 		'apellido',
 		'cargo',
-		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -136,14 +134,12 @@ class ProveedorDeleteView(DeleteView):
 
 
 ###############################################################
-
 def loginExtra(request):
 	if request.method == 'POST':
 		id_trabajo = request.POST['id_user']
 		dni 	= request.POST['username']
 		password= request.POST['password']
 
-		#person = Personal.objects.get(username=dni, password=password, id_user=id_trabajo)		
 		try:
 			person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
 		except Personal.DoesNotExist:
@@ -169,10 +165,10 @@ def loginExtra(request):
 				return render(request, 'usuario/indexBartender.html')	
 
 			elif id_trabajo == '111':
-				return render(request,'usuario/indexCajero.html')
+				return render(request, 'usuario/indexCajero.html')
 			
 			else:
-				messages.info(request, 'Algùn dato es incorrecto. Vuelva a intentarlo.')
+				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
 				return redirect('loginExtra')
 		else:
 			messages.info(request, 'Datos erroneos')
