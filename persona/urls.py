@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from accounts import views
+from persona.views import loginExtra, registerExtra, CRegistrado, Bartender, Cajero, Mozo, JAlmacen, JCocina, Administrador 
 from accounts.views import administrar
 from .views import(
 	PersonalListView, PersonalDetailView, PersonalCreateView,
@@ -22,7 +23,7 @@ from .views import(
 	ClienteListView, ClienteDetailView, ClienteCreateView, 
 	ClienteUpdateView, ClienteDeleteView,
 	ProveedorListView, ProveedorDetailView, ProveedorCreateView, 
-	ProveedorUpdateView, ProveedorDeleteView,
+	ProveedorUpdateView, ProveedorDeleteView
 	) 
 
 app_name = 'persona' 
@@ -47,4 +48,14 @@ urlpatterns = [
     path('proveedor/create/', ProveedorCreateView.as_view(), name='proveedor-create'),
     path('proveedor/<int:pk>/update/', ProveedorUpdateView.as_view(template_name='persona/proveedor_update.html'), name='proveedor-update'),
     path('proveedor/<int:pk>/delete/', ProveedorDeleteView.as_view(), name='proveedor-delete'),
+
+    path('personal/loginExtra/', loginExtra, name="loginExtra"),
+    path('personal/registerExtra/', registerExtra, name="registerExtra"), 
+    path('personal/CRegistrado/', CRegistrado, name="CRegistrado"),
+    path('personal/Bartender/', Bartender, name="Bartender"),
+    path('personal/Cajero/', Cajero, name="Cajero"),
+    path('personal/JAlmacen/', JAlmacen, name="JAlmacen"),
+    path('personal/JCocina/', Mozo, name="JCocina"),
+    path('personal/Administrador/', Administrador, name="Administrador"),
+    path('personal/Mozo/', Mozo, name="Mozo"),
 ]

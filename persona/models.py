@@ -9,9 +9,9 @@ genero = (
        ('otro','Prefiero no decirlo'),
 )
 puesto = (
-	('100','ADMINISTRADOR'),
-	('101','JEFE DE COCINA'),
-	('102','JEFE DE ALMACEN'),
+	('administrador','ADMINISTRADOR'),
+	('jefe de cocina','JEFE DE COCINA'),
+	('jefe de almacen','JEFE DE ALMACEN'),
 	('recepcionista','RECEPCIONISTA'),
 	('cajero','CAJERO'),
 	('mesero','MESERO'),
@@ -25,7 +25,7 @@ class Personal(models.Model):
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
 	cargo = models.CharField(max_length=100, choices=puesto, default='otro')
-	id_trabajo = models.CharField(max_length=100)	
+	id_trabajo = models.IntegerField()	
 	dni = models.IntegerField()
 	edad = models.IntegerField()
 	sexo = models.CharField(max_length=100, choices=genero, default='otro')
@@ -34,6 +34,7 @@ class Personal(models.Model):
 	correo = models.CharField(max_length=50)
 	cap_esp = models.BooleanField(default=False)
 	imagen = models.ImageField(upload_to='persona',default='persona/sin_imagen.jpg') 
+	password = models.CharField(max_length=50)
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})
@@ -50,6 +51,7 @@ class Cliente(models.Model):
 	direc = models.CharField(max_length=100, default='No requiere delibery')
 	vip = models.BooleanField(default=False)
 	especif_vip = models.CharField(max_length=100, default='Ninguna')
+	password = models.CharField(max_length=50)	
 
 	def get_absolute_url(self):
 		return reverse('persona:cliente-detail', kwargs = {'pk': self.id})

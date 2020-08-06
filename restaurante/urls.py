@@ -25,7 +25,6 @@ urlpatterns = [
     path('persona/', include('persona.urls')),
     path('accounts/', include('accounts.urls')),
     path('platos/', include('platos.urls')),
-    path('usuario/', include('usuario.urls')),
     path('comandas/',include('comandas.urls')),
 #     path("reset/password_reset", password_reset, {'template_name':'registration/password_reset_form.html', 
 #         'email_template': 'usuario/password_reset_email.html'}, name='password_reset'),        
