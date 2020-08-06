@@ -136,26 +136,6 @@ class ProveedorDeleteView(DeleteView):
 
 
 ###############################################################
-def Bartender(request):
-	return render(request, 'usuario/indexBartender.html')
-
-def CRegistrado(request):
-	return render(request, 'usuario/indexCRegistrado.html')
-
-def Cajero(request):
-	return render(request, 'usuario/indexCajero.html')
-
-def JAlmacen(request):
-	return	render(request, 'usuario/indexJAlmacen.html')
-
-def Mozo(request):
-	return render(request, 'usuario/indexMozo.html')	
-
-def JCocina(request):
-	return render(request, 'usuario/indexJCocina.html')	
- 
-def Administrador(request):
-	return render(request, 'usuario/indexAdministrador.html')	
 
 def loginExtra(request):
 	if request.method == 'POST':
@@ -163,35 +143,33 @@ def loginExtra(request):
 		dni 	= request.POST['username']
 		password= request.POST['password']
 
-		#usuario = Usuario.objects.get(username=dni, password=password, id_user=id_user)		
-		#usuario = Usuario.authenticate(username=dni, password=password, id_user=id_user)		
+		#person = Personal.objects.get(username=dni, password=password, id_user=id_trabajo)		
 		try:
-		    usuario = Personal.objects.get(username=dni, password=password, id_user=id_trabajo)
+			person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
 		except Personal.DoesNotExist:
-			usuario = None
+ 			person = None
 
+		if person is not None:
+			if id_trabajo== '987':
+				return render(request, 'usuario/indexJAlmacen.html')
 
-		if usuario is not None:
-			if id_user == '987':
-				return redirect('JAlmacen')
-
-			elif id_user == '990':
-				return redirect('Administrador')
+			elif id_trabajo == '990':
+				return render(request, 'usuario/indexAdministrador.html')
 			
-			elif id_user == '988':
-				return redirect('JCocina')
+			elif id_trabajo == '988':
+				return render(request, 'usuario/indexJCocina.html')
 
-			elif id_user == '222':
-				return redirect('CRegistrado')
+			elif id_trabajo == '222':
+				return render(request, 'usuario/indexCRegistrado.html')
 			
-			elif id_user == '654':
-				return redirect('Mozo')	
+			elif id_trabajo == '654':
+				return render(request,'usuario/indexMozo.html')	
 
-			elif id_user == '321':
-				return redirect('Bartender')	
+			elif id_trabajo == '321':
+				return render(request, 'usuario/indexBartender.html')	
 
-			elif id_user == '111':
-				return redirect('Cajero')
+			elif id_trabajo == '111':
+				return render(request,'usuario/indexCajero.html')
 			
 			else:
 				messages.info(request, 'Algùn dato es incorrecto. Vuelva a intentarlo.')

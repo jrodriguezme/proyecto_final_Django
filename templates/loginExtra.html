@@ -43,13 +43,13 @@
 					        </div>
 					        <div class="row col-md-6">
 					            <div class="form-group">
-					        	   	{% block body %}
+					        	{% block body %}
 									<form action="loginExtra" method="post">
 										{% csrf_token %}
 										<label for="">Ingrese su id:</label>
 										<input type="number" name="id_user" >									
 										<label for="">Ingrese su usuario:</label>
-										<input type="input" name="username" >
+										<input type="number" name="username" >
 										<label for="">Ingrese su contraseña:</label>
 										<input type="password" name="password">
 							        	<div class=" ml-5 mt-1 md-1 ">
@@ -66,8 +66,8 @@
 									<label>{{message}}</label>
 									{% endfor %}
 								</div>
+								{% endblock%}
 					        </div>
-					        {% endblock%}
 					    </div>
 				    </div>
 				</div>
