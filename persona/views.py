@@ -22,8 +22,8 @@ class PersonalCreateView(CreateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_trabajo',
 		'cargo',
+		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -39,8 +39,8 @@ class PersonalUpdateView(UpdateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_trabajo',
 		'cargo',
+		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
