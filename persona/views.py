@@ -151,9 +151,23 @@ def loginExtra(request):
 		password= request.POST['password']
 
 		try:
+			person2 = Cliente.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)			
 			person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
-		except Personal.DoesNotExist:
+		except Personal.DoesNotExist: 
  			person = None
+		except Cliente.DoesNotExist:
+ 			person2 = None
+
+		if person2 is not None:
+ 			if id_trabajo =='222':
+ 				return render(request, 'usuario/indexCRegistrado.html')
+ 			else:
+ 				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
+ 				return redirect('loginExtra')
+		else:
+ 			messages.info(request, 'Datos erroneos')
+ 			return redirect('loginExtra')
+
 
 		if person is not None:
 			if id_trabajo== '987':
@@ -164,9 +178,6 @@ def loginExtra(request):
 			
 			elif id_trabajo == '988':
 				return render(request, 'usuario/indexJCocina.html')
-
-			elif id_trabajo == '222':
-				return render(request, 'usuario/indexCRegistrado.html')
 			
 			elif id_trabajo == '654':
 				return render(request,'usuario/indexMozo.html')	
