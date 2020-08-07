@@ -8,14 +8,7 @@ from django.apps import apps
 #        ('masculino', 'MASCULINO'),
 #        ('otro','Prefiero no decirlo'),
 # )
-num_personas = (
-	(1, '1'),
-	(2, '2'),
-	(3, '3'),
-	(4, '4'),
-	(5, '5'),
-	('mas de 5', 'Mas de 5'),
-)
+
 
 def contador():
 	Formato=apps.get_model(app_label='comandas',model_name='Formato')

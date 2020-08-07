@@ -46,7 +46,7 @@ class Cliente(models.Model):
 
 	nombre 		= models.CharField(max_length=100)
 	apellido 	= models.CharField(max_length=100)
-	id_cliente 	= 222
+	id_cliente 	= models.CharField(max_length=100, default=222)
 	dni 		= models.IntegerField()
 	edad 		= models.IntegerField(default=False)
 	sexo 		= models.CharField(max_length=100, choices=genero, default='otro')
