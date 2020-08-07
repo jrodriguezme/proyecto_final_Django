@@ -8,15 +8,18 @@ from django.apps import apps
 #        ('masculino', 'MASCULINO'),
 #        ('otro','Prefiero no decirlo'),
 # )
-
-def contador():
-	Formato=apps.get_model(app_label='comandas',model_name='Formato')
-	return Formato.objects.count()
-	
+def hora():
+      hour = timezone.now()
+      formatedHour = hour.strftime("%H:%M:%S")
+      return formatedHour
+def numero():
+	numero=Formato.objects.count
 class Formato(models.Model):
-	#numero_comanda		= models.IntegerField(default=contador())
+	numero_comanda		= numero
+	hora_marca 			= models.CharField(max_length=50, default=hora)
 	fecha_hoy			= datetime.date.today()
 	numero_mesa			= models.IntegerField()
 	numero_comensales	= models.IntegerField()
 	id_camarero			= models.CharField(max_length=100)
 	id_platos			= models.CharField(max_length=100)
+

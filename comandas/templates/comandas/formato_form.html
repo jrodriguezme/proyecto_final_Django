@@ -1,0 +1,98 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+<!-- barra de navegacion -->
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	<div class="container">
+		<a class="navbar-brand" href="index.html">Feliciano</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+				<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+				{% if user.is_authenticated %}            
+				<li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
+				{% else %}
+				<li class="nav-item"><a href="/accounts/login" class="nav-link">Login</a></li>            
+				{% endif %}
+				{% if user.is_authenticated %}
+				<li class="nav-item"><a href="/accounts/logout" class="nav-link">Logout</a></li>
+				{% if user.is_staff %}
+				<li class="nav-item"><a href="/accounts/administrar" class="nav-link">Administrar</a></li>
+				{% endif %} 
+				{% endif %}
+				<li class="nav-item cta"><a href="reservation.html" class="nav-link">Book a table</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+	<div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+        	<div class="col-md-9 ftco-animate text-center mb-4">
+            	{% if user.is_staff %}
+            		<h1 class="mb-2 bread">Comandas</h1>
+            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio <i class="ion-ios-arrow-forward"></i></a></span> <span>comanda <i class="ion-ios-arrow-forward"></i></span></p>
+            	{% else %}
+            		<h1 class="mb-2 bread">Usted no es Administrador</h1>
+            	{% endif %}
+          	</div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section img" style="background-image: url({% static 'images/bg_3.jpg' %})" data-stellar-background-ratio="0.5">
+			<div class="container">
+				<div class="row d-flex">
+          <div class="col-md-8 ftco-animate makereservation p-4 px-md-5 pb-md-5">
+          	<div class="heading-section ftco-animate mb-5 text-center">
+	          	<span class="subheading">Comandas</span>
+	            <h2 class="mb-4">Agregar comanda</h2>
+	          </div>
+            <form action="#" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Numero de Mesa</label>
+                    {{form.numero_mesa}}
+                    <!-- <input type="text" class="form-control" placeholder="Tu Nombre"> -->
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Numero de Personas</label>
+                    {{form.numero_mesa}}
+                    <!-- <input type="text" class="form-control" placeholder="Tu Email"> -->
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Id de mozo</label><br>
+                    <!-- <input type="text" class="form-control" placeholder="Celular"> -->
+                    {{form.id_camarero}}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Id de plato</label><br>
+                    <!-- <input type="text" class="form-control" id="book_date" placeholder="Fecha"> -->
+                    {{form.id_platos}}
+                  </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                  <div class="form-group text-center">
+                    <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+			</div>
+		</section>
+{% endblock %}
