@@ -9,15 +9,23 @@ from django.views.generic import (
 	DeleteView,
 	)
 # Create your views here.
-class comanda(CreateView):
+def comandas(request):
+	return render(request,'comandas/comandas.html')
+
+class agregar(CreateView):
 	model=Formato
-	model.numero_comanda=model.objects.count
 	fields = [
+		'hora_marca',
+		'fecha_hoy',
+		'numero_comanda',
 		'numero_mesa',
 		'numero_comensales',
 		'id_camarero',
 		'id_platos',
 	]
+	def get_success_url(self):
+		return reverse('comandas:detalles_comandas', args={'pk': self.id})
+
 class detalles(DetailView):
 	model=Formato
 
@@ -31,6 +39,9 @@ def modificar2(request):
 class modificar(UpdateView):
 	model = Formato
 	fields = [
+		'hora_marca',
+		'fecha_hoy',
+		'numero_comanda',
 		'numero_mesa',
 		'numero_comensales',
 		'id_camarero',

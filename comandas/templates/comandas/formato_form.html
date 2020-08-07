@@ -54,8 +54,31 @@
 	          	<span class="subheading">Comandas</span>
 	            <h2 class="mb-4">Agregar comanda</h2>
 	          </div>
-            <form action="#" method="post">
+            {% block body %}
+            <form action method="post" id="formato_form" novalidate>
+              {% csrf_token %}
               <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Numero de Comanda</label>
+                    {{form.numero_comanda}}
+                    <!-- <input type="text" class="form-control" placeholder="Tu Email"> -->
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Fecha de comanda</label>
+                    {{form.fecha_hoy}}
+                    <!-- <input type="text" class="form-control" placeholder="Tu Nombre"> -->
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Hora de comanda</label>
+                    {{form.hora_marca}}
+                    <!-- <input type="text" class="form-control" placeholder="Tu Nombre"> -->
+                  </div>
+                </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Numero de Mesa</label>
@@ -86,11 +109,13 @@
                 </div>
                 <div class="col-md-12 mt-3">
                   <div class="form-group text-center">
-                    <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">
+                    <a href="../" class="btn btn-primary py-3 px-5 mr-5">Atras</a>
+                    <input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
                   </div>
                 </div>
               </div>
             </form>
+            {% endblock %}
           </div>
         </div>
 			</div>

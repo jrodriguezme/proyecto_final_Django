@@ -38,8 +38,8 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
         	<div class="col-md-9 ftco-animate text-center mb-4">
             	{% if user.is_staff %}
-            		<h1 class="mb-2 bread">Platos</h1>
-            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
+            		<h1 class="mb-2 bread">Detalles</h1>
+            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Detalles Comanda<i class="ion-ios-arrow-forward"></i></span></p>
             	{% else %}
             		<h1 class="mb-2 bread">Usted no es Administrador</h1>
             	{% endif %}
@@ -60,28 +60,26 @@
 			        </div>
 					<div class="form-group">
 					    {% block body %}
-						<label for="">NOMBRE DEL PLATO:</label>
-						<br> {{ object.nombre }}<br>
-						<label for="">CIUDAD DEL PLATO:</label>
-						<br> {{ object.ciudad }}<br>
-						<label for="">DESCRIPCION:</label>
-						<br> {{ object.descripcion }}<br>
-						<label for="">PRECIO:</label>
-						<br> {{ object.precio }}<br>							
-						<label for="">IMAGEN DEL PLATO:</label>
-						<img src="{{object.imagen.url}}" width=100% height=100%>
-						<br>
-						{% if object.portada %}
-						El plato es un plato de portada
-						{% else %}
-						El plato no es un plato de portada
-						{% endif %}
+						<label for="">Numero de Pedido:</label>
+						<br> {{ object.numero_comanda }}<br>
+						<label for="">Fecha de pedido:</label>
+						<br> {{ object.fecha_hoy }}<br>
+						<label for="">hora de pedido:</label>
+						<br> {{ object.hora_marca }}<br>
+						<label for="">Numero de mesa:</label>
+						<br> {{ object.numero_mesa }}<br>
+						<label for="">Numero de Personas:</label>
+						<br> {{ object.numero_comensales }}<br>
+						<label for="">Id de camarero:</label>
+						<br> {{ object.id_camarero }}<br>
+						<label for="">Id de pedidos:</label>
+						<br> {{ object.id_platos }}<br>						
 			        </div>
 			        <div class="col-md-12 mt-3">
 			           	<div class="form-group"> 		
 							<a href="modificar" class="btn btn-primary py-2 px-4 mr-4 mt-4">Editar</a>
 							<a href="borrar/" class="btn btn-primary py-2 px-4 mr-4 mt-4">Eliminar</a>	
-							<a href="../" class="btn btn-primary py-2 px-4 mr-4 mt-4">Regresar a Platos</a>
+							<a href="../" class="btn btn-primary py-2 px-4 mr-4 mt-4">Regresar a Comandas</a>
 			           	</div>
 			        </div>
 			        {% endblock%}
