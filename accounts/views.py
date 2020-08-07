@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 # Create your views here.
-
+from persona.views import Personal
 def login(request):
 	if request.method == 'POST':
 		username = request.POST['username']
@@ -104,8 +104,78 @@ def id(request):
 		return render(request, 'id.html') 
 
 
-def loginExtra(request): 
-	return render(request, 'loginExtra.html') 
+# def loginExtra(request): 
+# 	return render(request, 'loginExtra.html') 
 
 def gerente(request):
-	return render(request, 'indexGerente.html')	
+ 	return render(request, 'indexGerente.html')	
+
+# def Bartender(request):
+# 	return render(request, 'indexBartender.html')
+
+#def CRegistrado(request):
+# 	return render(request, 'indexCRegistrado.html')
+
+# def Cajero(request):
+# 	return render(request, 'indexCajero.html')
+
+# def JAlmacen(request):
+# 	return	render(request, 'indexJAlmacen.html')
+
+# def Mozo(request):
+# 	return render(request, 'indexMozo.html')	
+
+# def JCocina(request):
+# 	return render(request, 'indexJCocina.html')	
+ 
+# def Administrador(request):
+# 	return render(request, 'usuario/indexAdministrador.html')	
+
+# def loginExtra(request):
+# 	if request.method == 'POST':
+# 		id_trabajo = request.POST['id_user']
+# 		dni 	= request.POST['username']
+# 		password= request.POST['password']
+
+# 		#person = Personal.objects.get(username=dni, password=password, id_user=id_trabajo)		
+# 		#person = Personal.authenticate(username=dni, password=password, id_user=id_user)		
+# 		try:
+# 		    person = Personal.objects.get(username=dni, password=password, id_trabajo=id_trabajo)
+# 		except Personal.DoesNotExist:
+# 		 	person = None
+
+
+# 		if person is not None:
+# 			if id_user == '987':
+# 				return redirect('JAlmacen')
+
+# 			elif id_user == '990':
+# 				return redirect('Administrador')
+			
+# 			elif id_user == '988':
+# 				return redirect('JCocina')
+
+# 			elif id_user == '222':
+# 				return redirect('CRegistrado')
+			
+# 			elif id_user == '654':
+# 				return redirect('Mozo')	
+
+# 			elif id_user == '321':
+# 				return redirect('Bartender')	
+
+# 			elif id_user == '111':
+# 				return redirect('Cajero')
+			
+# 			else:
+# 				messages.info(request, 'Algùn dato es incorrecto. Vuelva a intentarlo.')
+# 				return redirect('loginExtra')
+# 		else:
+# 			messages.info(request, 'Datos erroneos')
+# 			return redirect('loginExtra')
+# 	else:
+# 		return render(request,'loginExtra.html')		
+
+
+# def registerExtra(request):
+# 	return render(request, 'registerExtra.html')	

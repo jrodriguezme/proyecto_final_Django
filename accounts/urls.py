@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from persona.views import loginExtra
+import persona
 #from django.contrib.auth.views import login, password_reset, password_reset_done, password_confirm, password_reset_confirm, password_reset_complete
 
 urlpatterns = [
@@ -10,7 +12,7 @@ urlpatterns = [
     path("book", views.book, name="book"),    
     path("platos", views.menu, name="platos"),
     path("id", views.id, name="id"),    
-    path("loginExtra", views.loginExtra, name="loginExtra"),    
+    path("loginExtra", persona.views.loginExtra, name="loginExtra"),    
     path("gerente", views.gerente, name="gerente"),        
   #   path("reset/password_reset", views.password_reset, {'template_name':'usuario/password_reset_form.html', 
   #   	'email_template': 'registration/password_reset_email.html'}, name="password_reset"),        

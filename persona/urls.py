@@ -22,7 +22,7 @@ from .views import(
 	ClienteListView, ClienteDetailView, ClienteCreateView, 
 	ClienteUpdateView, ClienteDeleteView,
 	ProveedorListView, ProveedorDetailView, ProveedorCreateView, 
-	ProveedorUpdateView, ProveedorDeleteView,
+	ProveedorUpdateView, ProveedorDeleteView, loginExtra, registerExtra
 	) 
 
 app_name = 'persona' 
@@ -47,4 +47,7 @@ urlpatterns = [
     path('proveedor/create/', ProveedorCreateView.as_view(), name='proveedor-create'),
     path('proveedor/<int:pk>/update/', ProveedorUpdateView.as_view(template_name='persona/proveedor_update.html'), name='proveedor-update'),
     path('proveedor/<int:pk>/delete/', ProveedorDeleteView.as_view(), name='proveedor-delete'),
+
+    path('personal/loginExtra/', loginExtra, name="loginExtra"),
+    path('personal/registerExtra/', registerExtra, name="registerExtra"), 
 ]

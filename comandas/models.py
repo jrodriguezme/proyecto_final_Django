@@ -8,12 +8,21 @@ from django.apps import apps
 #        ('masculino', 'MASCULINO'),
 #        ('otro','Prefiero no decirlo'),
 # )
+<<<<<<< HEAD
 def hora():
       hour = timezone.now()
       formatedHour = hour.strftime("%H:%M:%S")
       return formatedHour
 def numero():
 	numero=Formato.objects.count
+=======
+
+
+def contador():
+	Formato=apps.get_model(app_label='comandas',model_name='Formato')
+	return Formato.objects.count()
+	
+>>>>>>> 78e6dc0da1fb326390a96f33843606dc5227bf27
 class Formato(models.Model):
 	numero_comanda		= numero
 	hora_marca 			= models.CharField(max_length=50, default=hora)

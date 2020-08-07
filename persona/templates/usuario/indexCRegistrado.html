@@ -65,11 +65,12 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="." class="nav-link">Inicio</a></li>
             <li class="nav-item"><a href="#menu" class="nav-link" data-scroll-to="#">Menu</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Inventario de muebles</a></li>            
-            <li class="nav-item"><a href="accounts/register" class="nav-link">Inventario de cocina</a></li>
-            <li class="nav-item"><a href="/accounts/administrar" class="nav-link">Proveedor</a></li>
+	          <li class="nav-item"><a href="/contactanos" class="nav-link">Contactanos</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.nombre}}</a></li>
+            <li class="nav-item"><a href="accounts/register" class="nav-link">Delibery</a></li>                 
+            <li class="nav-item"><a href="#" class="nav-link">Comanda</a></li>            
             <li class="nav-item"><a href="/accounts/logout" class="nav-link">Salir</a></li>
+            <li class="nav-item cta"><a href="accounts/book" class="nav-link">Realizar una reserva</a></li>        
 	        </ul>
 	      </div>
 	    </div>
@@ -285,6 +286,7 @@
 			</div>
 		</section>
 
+<!-- Seccion de muestra del menu-->
     <section class="ftco-section" id="menu">
     	<div class="container">
     		<div class="row no-gutters justify-content-center mb-5 pb-2">
@@ -414,6 +416,137 @@
     	</div>
     </section>
     
+
+<!-- Seccion de muestra de bebidas-->
+    <section class="ftco-section" id="menu">
+      <div class="container">
+        <div class="row no-gutters justify-content-center mb-5 pb-2">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+            <span class="subheading">Bebidas</span>
+            <h2 class="mb-4">Amplia colección</h2>
+          </div>
+        </div>
+        <div class="row no-gutters d-flex align-items-stretch">
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img" style="background-image: url({% static 'images/breakfast-1.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Order now</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img" style="background-image: url({% static 'images/breakfast-2.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Ordene Ahora</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img order-md-last" style="background-image: url({% static 'images/breakfast-3.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Ordene Ahora</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img order-md-last" style="background-image: url({% static 'images/breakfast-5.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Ordene Ahora</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img" style="background-image: url({% static 'images/breakfast-6.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Ordene Ahora</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img" style="background-image: url({% static 'images/breakfast-2.jpg' %});"></div>
+              <div class="text d-flex align-items-center">
+                <div>
+                  <div class="d-flex">
+                    <div class="one-half">
+                      <h3>Grilled Beef with potatoes</h3>
+                    </div>
+                    <div class="one-forth">
+                      <span class="price">$29</span>
+                    </div>
+                  </div>
+                  <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                  <p><a href="#" class="btn btn-primary">Ordene Ahora</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-2">
@@ -494,8 +627,77 @@
 				</div>
 			</div>
 		</section>
-    
 
+    
+    {% if user.is_authenticated %}            
+		<section class="ftco-section img" style="background-image: url({% static 'images/bg_3.jpg' %})" data-stellar-background-ratio="0.5">
+			<div class="container">
+				<div class="row d-flex">
+          <div class="col-md-8 ftco-animate makereservation p-4 px-md-5 pb-md-5">
+          	<div class="heading-section ftco-animate mb-5 text-center">
+	          	<span class="subheading">Reservar</span>
+	            <h2 class="mb-4">Haga una Reservación</h2>
+	          </div>
+            <form action="#">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Tú Nombre">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" placeholder="Tu Email">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Celular</label>
+                    <input type="text" class="form-control" placeholder="Celular">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Fecha</label>
+                    <input type="text" class="form-control" id="book_date" placeholder="Fecha">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Hora</label>
+                    <input type="text" class="form-control" id="book_time" placeholder="Hora">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Personas</label>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">Personas</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4+</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                  <div class="form-group text-center">
+                    <input type="submit" value="Reservar" class="btn btn-primary py-3 px-5">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+			</div>
+		</section>
+		{% endif %}
+    
 		<section class="ftco-section testimony-section img">
 			<div class="overlay"></div>
       <div class="container">

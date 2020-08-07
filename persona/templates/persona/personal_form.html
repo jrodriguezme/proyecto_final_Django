@@ -117,12 +117,8 @@
 				     	                {{ form.dni }}
 				          	        </div>
 				                </div>		
-				                <div class="col-md-6">
-			                        <div class="form-group">
-				  	                    <label for="">ID DE TRABAJO:</label>
-				     	                {{ form.id_trabajo }}
-				          	        </div>
-				                </div>
+				     	        {{ form.id_trabajo.as_hidden }}
+				                {{ form.password.as_hidden }}
 				                <div class="col-md-6">
 				            	    <div class="form-group">
 				                	    <label for="">Cargo:</label><br>

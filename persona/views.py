@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -32,6 +33,7 @@ class PersonalCreateView(CreateView):
 		'correo',
 		'cap_esp',
 		'imagen',
+		'password',
 	]
 
 class PersonalUpdateView(UpdateView):
@@ -49,6 +51,7 @@ class PersonalUpdateView(UpdateView):
 		'correo',
 		'cap_esp',
 		'imagen',
+		'password',
 	]
 	template_name_suffix = '_update_form'
 
@@ -78,6 +81,7 @@ class ClienteCreateView(CreateView):
 		'direc',
 		'vip',
 		'especif_vip',
+		'password',
 	]
 
 class ClienteUpdateView(UpdateView):
@@ -131,3 +135,57 @@ class ProveedorDeleteView(DeleteView):
 	success_url = reverse_lazy('persona:proveedor-list')
 
 
+# class Comanda(models.Model):
+# 	model = Comanda
+# 	fields = [
+# 		'customer',
+# 		'dish',
+# 		'quantity',
+# 	]
+
+###############################################################
+def loginExtra(request):
+	if request.method == 'POST':
+		id_trabajo = request.POST['id_user']
+		dni 	= request.POST['username']
+		password= request.POST['password']
+
+		try:
+			person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
+		except Personal.DoesNotExist:
+ 			person = None
+
+		if person is not None:
+			if id_trabajo== '987':
+				return render(request, 'usuario/indexJAlmacen.html')
+
+			elif id_trabajo == '990':
+				return render(request, 'usuario/indexAdministrador.html')
+			
+			elif id_trabajo == '988':
+				return render(request, 'usuario/indexJCocina.html')
+
+			elif id_trabajo == '222':
+				return render(request, 'usuario/indexCRegistrado.html')
+			
+			elif id_trabajo == '654':
+				return render(request,'usuario/indexMozo.html')	
+
+			elif id_trabajo == '321':
+				return render(request, 'usuario/indexBartender.html')	
+
+			elif id_trabajo == '111':
+				return render(request, 'usuario/indexCajero.html')
+			
+			else:
+				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
+				return redirect('loginExtra')
+		else:
+			messages.info(request, 'Datos erroneos')
+			return redirect('loginExtra')
+	else:
+		return render(request,'loginExtra.html')		
+
+
+def registerExtra(request):
+	return render(request, 'registerExtra.html')
