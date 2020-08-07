@@ -88,15 +88,15 @@
 		        <div class="col-md-7 order-md-last ftco-animate makereservation p-4 p-md-5 pt-5">
 			       	<div class="py-md-5">
 				       	<div class="heading-section ftco-animate mb-5">
-				         	<span class="subheading">.   Personal</span>
+				         	<span class="subheading">.   Comanda</span>
 				            <h2 class="mb-4">CONFIRMAR ELIMINACION</h2>
 				        </div>
 						<i>_____________________________</i>
 						{% block body %}
-						<h3>{{ object.apellido }}, {{ object.nombre }}</h3>
+						<h3>Numero de pedido: {{ object.numero_comanda }}</h3>
 						<form method="POST">
 							{% csrf_token %}
-							<p>Confirme si desea borrar a este plato.
+							<p>Confirme si desea borrar a esta comanda.
 							<i>_____________________________</i></p>
 							<div class="col-md-8 mt-6">
 				           		<div class="form-group">

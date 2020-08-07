@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Formato
 from django.urls import reverse_lazy
+from django.urls import reverse
 from django.views.generic import (
 	ListView,
 	DetailView,
@@ -23,8 +24,6 @@ class agregar(CreateView):
 		'id_camarero',
 		'id_platos',
 	]
-	def get_success_url(self):
-		return reverse('comandas:detalles_comandas', args={'pk': self.id})
 
 class detalles(DetailView):
 	model=Formato

@@ -37,8 +37,8 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
         	<div class="col-md-9 ftco-animate text-center mb-4">
             	{% if user.is_staff %}
-            		<h1 class="mb-2 bread">Platos</h1>
-            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
+            		<h1 class="mb-2 bread">Eliminar </h1>
+            		<p class="breadcrumbs"><span class="mr-2"><a href="./">Comandas <i class="ion-ios-arrow-forward"></i></a></span> <span>Eliminar Comanda <i class="ion-ios-arrow-forward"></i></span></p>
             	{% else %}
             		<h1 class="mb-2 bread">Usted no es Administrador</h1>
             	{% endif %}
@@ -55,14 +55,14 @@
 			       	<div class="py-md-5">
 				       	<div class="heading-section ftco-animate mb-4">
 				         	<span class="subheading ml-4">Eliminar</span>
-				            <h2 class="mb-8">PLATOS REGISTRADOS</h2>
+				            <h2 class="mb-8">COMANDAS REGISTRADAS</h2>
 				        </div>
 						<div class="form-group">
 							<ol>
 						    {% block body %}
 							{% for instance in object_list %}
 								<p>
-									<li><a href='{{ instance.get_absolute_url }}'>{{ instance.nombre }}</a></li>
+									<li><a href='{{ instance.get_absolute_url }}'>Comanda: {{ instance.numero_comanda }}</a></li>
 								</p>
 							{% endfor %}
 							</ol>
