@@ -24,6 +24,7 @@ class PersonalCreateView(CreateView):
 		'nombre',
 		'apellido',
 		'cargo',
+		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -41,6 +42,7 @@ class PersonalUpdateView(UpdateView):
 		'nombre',
 		'apellido',
 		'cargo',
+		'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -132,6 +134,14 @@ class ProveedorDeleteView(DeleteView):
 	model = Proveedor
 	success_url = reverse_lazy('persona:proveedor-list')
 
+
+# class Comanda(models.Model):
+# 	model = Comanda
+# 	fields = [
+# 		'customer',
+# 		'dish',
+# 		'quantity',
+# 	]
 
 ###############################################################
 def loginExtra(request):
