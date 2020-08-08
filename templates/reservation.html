@@ -109,51 +109,65 @@
 		          			<span class="subheading">Reservar una mesa</span>
 		            		<h2 class="mb-4">CONFIRMAR LA RESERVA</h2>
 		          		</div>
-			            <form action="#">
+                  {% block body %}
+			            <form action="#" method="POST">
+                    {% csrf_token %}
 			              <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Reporte:</label>
+                          <input type="text" value="{{ form.reporte }}" class="form-control" placeholder="Su reporte">
+                        </div>
+                      </div>
 			                <div class="col-md-6">
 			                  <div class="form-group">
 			                    <label for="">Nombre:</label>
-			                    <input type="text" class="form-control" placeholder="Your Name">
+			                    <input type="text" value="{{ form.nombre }}" class="form-control" placeholder="Su nombre">
 			                  </div>
 			                </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Apellido:</label>
+                          <input type="text" value="{{ form.apellido }}" class="form-control" placeholder="Sus apellidos">
+                        </div>
+                      </div>                      
 			                <div class="col-md-6">
 			                  <div class="form-group">
-			                    <label for="">Correo</label>
-			                    <input type="text" class="form-control" placeholder="Your Email">
+			                    <label for="">Correo: </label>
+			                    <input type="text" value="{{ form.correo }}" class="form-control" placeholder="Su correo electronico">
 			                  </div>
 			                </div>
 			                <div class="col-md-6">
 			                  <div class="form-group">
 			                    <label for="">Telefono</label>
-			                    <input type="text" class="form-control" placeholder="Phone">
+			                    <input type="text" value="{{ form.telefono }}" class="form-control" placeholder="Telefono">
 			                  </div>
 			                </div>
 			                <div class="col-md-6">
 			                  <div class="form-group">
-			                    <label for="">Fecha</label>
-			                    <input type="text" class="form-control" id="book_date" placeholder="Date">
+			                    <label for="">Fecha:</label>
+			                    <input type="text" class="form-control" value="{{form.fecha}}" id="book_date" placeholder="Fecha">
 			                  </div>
 			                </div>
 			                <div class="col-md-6">
 			                  <div class="form-group">
-			                    <label for="">Hora</label>
-			                    <input type="text" class="form-control" id="book_time" placeholder="Time">
+			                    <label for="">Hora:</label>
+			                    <input type="text" class="form-control" value="{{ form.hora }}" id="book_time" placeholder="Hora">
 			                  </div>
 			                </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Nª de mesa:</label>
+                          <input type="text" class="form-control" value="form.numero_mesa" id="book_time" placeholder="Hora">
+                        </div>
+                      </div>                      
 			                <div class="col-md-6">
 			                  <div class="form-group">
-			                    <label for="">Nª de personas</label>
+			                    <label for="">Nª de personas:</label>
 			                    <div class="select-wrap one-third">
 			                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                      <select name="" id="" class="form-control">
-			                        <option value="">Person</option>
-			                        <option value="">1</option>
-			                        <option value="">2</option>
-			                        <option value="">3</option>
-			                        <option value="">4+</option>
-			                      </select>
-			                    </div>
+			                       <input type="text" value="{{form.numero_personas}}" id="" class="form-control"> 
+			                      </div>
 			                  </div>
 			                </div>
 			                <div class="col-md-12 mt-3">
@@ -164,6 +178,7 @@
 			              </div>
 			            </form>
 	          		</div>
+                {% endblock %}
         		</div>
         	</div>
 		</div>

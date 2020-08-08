@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+
 # from django.views.generic import (
 # 	ListView,
 # 	DetailView,
@@ -8,6 +9,14 @@ from django.urls import reverse_lazy
 # 	UpdateView,
 # 	DeleteView,
 # 	)
+
+from django.views.generic import (
+	ListView,
+	DetailView,
+	CreateView,
+	UpdateView,
+	DeleteView,
+	)
 from .models import Reporte, Reserva
 # Create your views here.
 def Reporte(request):

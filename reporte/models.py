@@ -1,6 +1,5 @@
 from django.db import models
 import datetime
-
 # Create your models here.
 from persona.models import Cliente, Comanda
 
@@ -13,10 +12,12 @@ num_personas = (
 	(5, '5'),
 	('mas de 5', 'Mas de 5'),
 )
+
 met_pago = (
 	('tarjeta','TARJETA'),
 	('efectivo','EFECTIVO'),
 )
+
 desc = (
 	('vip','CLIENTE VIP: 40%'),
 	('golden', 'TARJETA DORADA: 25%'),
@@ -25,6 +26,7 @@ desc = (
 	('aniversario','ANIVERSARIO DE CASA: 50%'),
 	('ninguno','ninguno'),
 )
+
 class Reporte(models.Model):
 	fecha 	= datetime.date.today()
 	hora 	= models.DateField()
