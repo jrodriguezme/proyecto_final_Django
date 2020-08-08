@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Formato
+from persona.models import Personal 
 from django.urls import reverse_lazy
 from django.urls import reverse
 from django.views.generic import (
@@ -11,7 +12,8 @@ from django.views.generic import (
 	)
 # Create your views here.
 def comandas(request):
-	return render(request,'comandas/comandas.html')
+	personas=Personal.objects.all()
+	return render(request,'comandas/comandas.html',{'personas':personas})
 
 class agregar(CreateView):
 	model=Formato

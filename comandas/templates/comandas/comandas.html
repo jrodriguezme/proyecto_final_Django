@@ -34,18 +34,18 @@
 	<div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
         	<div class="col-md-9 ftco-animate text-center mb-4">
-            	{% if user.is_staff %}
+            	{% if user.is_staff%}
             		<h1 class="mb-2 bread">Platos</h1>
             		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
             	{% else %}
-            		<h1 class="mb-2 bread">Usted no es Administrador</h1>
+            		<h1 class="mb-2 bread">Administrar comanda</h1>
             	{% endif %}
           	</div>
         </div>
     </div>
 </section>
 <!--Contenido Principal de la Página-->
-{% if user.is_staff %}
+
 	<section class="ftco-section ftco-wrap-about">
 		<div class="container">
 			<div class="row">
@@ -92,8 +92,6 @@
 			</div>
 		</div>
 	</section>
-{% else %}
 
-{% endif %}
 
 {% endblock %}
