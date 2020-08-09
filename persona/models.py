@@ -36,6 +36,9 @@ class Personal(models.Model):
 	cap_esp 	= models.BooleanField(default=False)
 	imagen 		= models.ImageField(upload_to='persona',default='persona/sin_imagen.jpg') 
 	password	= models.CharField(max_length=50, default='sumaq123')
+	def __str__(self):
+		datos=self.nombre+" "+self.apellido
+		return datos
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})

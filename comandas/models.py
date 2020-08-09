@@ -3,7 +3,7 @@ import datetime
 from django.utils import timezone
 from django.urls import reverse
 # Create your models here.
-
+from persona.models import Personal
 
 def hora():
 	hour = timezone.now()
@@ -20,7 +20,9 @@ class Formato(models.Model):
 	fecha_hoy			= models.CharField(max_length=50,default=datetime.date.today())
 	numero_mesa			= models.IntegerField(default=0)
 	numero_comensales	= models.IntegerField(default=0)
-	id_camarero			= models.CharField(max_length=100)
+	#id_camarero			= models.CharField(max_length=100)
+	id_camarero			= models.ForeignKey(Personal,on_delete=models.DO_NOTHING,related_name='camarero',null=False,blank=False)
 	id_platos			= models.CharField(max_length=100)
+
 	def get_absolute_url(self):
 		return reverse('comandas:detalles_comandas', kwargs = {'pk': self.id})
