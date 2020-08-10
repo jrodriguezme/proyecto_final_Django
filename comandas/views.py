@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Formato
 from persona.models import Personal 
+from .models import Pedido
 from django.urls import reverse_lazy
 from django.urls import reverse
 from django.views.generic import (
@@ -24,7 +25,12 @@ class agregar(CreateView):
 		'numero_mesa',
 		'numero_comensales',
 		'id_camarero',
-		'id_pedido',
+		'codigo',
+		'platos',
+		'num_platos',
+		'codigo',
+		'platos',
+		'num_platos'
 	]
 
 class detalles(DetailView):
@@ -46,7 +52,6 @@ class modificar(UpdateView):
 		'numero_mesa',
 		'numero_comensales',
 		'id_camarero',
-		'id_platos',
 	]
 	template_name_suffix = '_update_form'
 
