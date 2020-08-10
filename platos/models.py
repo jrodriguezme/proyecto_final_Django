@@ -10,6 +10,9 @@ class Platos(models.Model):
 	precio		= models.FloatField()
 	portada 	= models.BooleanField(default=False)
 	oferta		= models.BooleanField(default=False)
+	def __str__(self):
+		return self.nombre
+
 	def get_absolute_url(self):
 		return reverse('platos:detalles_plato', kwargs = {'pk': self.id})
 

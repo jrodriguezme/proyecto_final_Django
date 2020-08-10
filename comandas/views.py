@@ -24,7 +24,7 @@ class agregar(CreateView):
 		'numero_mesa',
 		'numero_comensales',
 		'id_camarero',
-		'id_platos',
+		'id_pedido',
 	]
 
 class detalles(DetailView):

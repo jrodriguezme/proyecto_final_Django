@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 # Create your models here.
 from persona.models import Personal
+from platos.models import Platos
 
 def hora():
 	hour = timezone.now()
@@ -14,6 +15,10 @@ def numero():
 	numero=Formato.objects.count()
 	return numero+1
 
+class Pedido(models.Model):
+	platos=models.ForeignKey(Platos,on_delete=models.DO_NOTHING) 
+	Num_platos=models.IntegerField(default=0);
+
 class Formato(models.Model):
 	numero_comanda		= models.IntegerField(default=numero)
 	hora_marca 			= models.CharField(max_length=50, default=hora)
@@ -22,7 +27,8 @@ class Formato(models.Model):
 	numero_comensales	= models.IntegerField(default=0)
 	#id_camarero			= models.CharField(max_length=100)
 	id_camarero			= models.ForeignKey(Personal,on_delete=models.DO_NOTHING,related_name='camarero',null=False,blank=False)
-	id_platos			= models.CharField(max_length=100)
+	id_pedido			= models.ForeignKey(Platos,on_delete=models.DO_NOTHING)
 
 	def get_absolute_url(self):
 		return reverse('comandas:detalles_comandas', kwargs = {'pk': self.id})
+
