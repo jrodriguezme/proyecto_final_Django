@@ -24,7 +24,7 @@ class PersonalCreateView(CreateView):
 		'nombre',
 		'apellido',
 		'cargo',
-		'id_trabajo',		
+	#	'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -42,7 +42,7 @@ class PersonalUpdateView(UpdateView):
 		'nombre',
 		'apellido',
 		'cargo',
-		'id_trabajo',		
+	#	'id_trabajo',		
 		'dni',
 		'edad',
 		'sexo',
@@ -74,7 +74,7 @@ class ClienteCreateView(CreateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_cliente',
+	#	'id_trabajo',
 		'dni',
 		'edad',
 		'sexo',
@@ -89,7 +89,7 @@ class ClienteUpdateView(UpdateView):
 	fields = [
 		'nombre',
 		'apellido',
-		'id_cliente',
+	#	'id_trabajo',
 		'dni',
 		'edad',
 		'sexo',
@@ -144,6 +144,14 @@ class ProveedorDeleteView(DeleteView):
 # 	]
 
 ###############################################################
+# def id_usuario(cargo):
+# 	if cargo == 'administrador':
+# 		id_trabajo = 2002
+# 	elif cargo == 'cajero':
+# 		id_trabajo = cajero
+# 	else:
+# 		id_trabajo = 123456
+
 def loginExtra(request):
 	if request.method == 'POST':
 		id_trabajo = request.POST['id_user']

@@ -26,7 +26,7 @@ class Personal(models.Model):
 	nombre 		= models.CharField(max_length=100)
 	apellido 	= models.CharField(max_length=100)
 	cargo 		= models.CharField(max_length=100, choices=puesto, default='otro')	
-	id_trabajo 	= models. CharField(max_length=100, default=210)
+	id_trabajo 	= models.CharField(max_length=100)
 	dni 		= models.CharField(max_length=100)
 	edad 		= models.IntegerField()
 	sexo 		= models.CharField(max_length=100, choices=genero, default='otro')
@@ -36,9 +36,26 @@ class Personal(models.Model):
 	cap_esp 	= models.BooleanField(default=False)
 	imagen 		= models.ImageField(upload_to='persona',default='persona/sin_imagen.jpg') 
 	password	= models.CharField(max_length=50, default='sumaq123')
+
 	def __str__(self):
 		datos=self.nombre+" "+self.apellido
 		return datos
+
+	def id_trabajo(self):
+		if self.cargo == 'administrador':
+			return '2002'
+		elif self.cargo == 'jefe de cocina':
+			return '998'
+		elif self.cargo == 'jefe de almacen':
+			return '987'
+		elif self.cargo == 'cajero':
+			return '111'								
+		elif self.cargo == 'mesero':
+			return '654'
+		elif self.cargo == 'bartender':
+			return '321'						
+		else:
+			return '1000'
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})
@@ -58,6 +75,9 @@ class Cliente(models.Model):
 	especif_vip = models.CharField(max_length=100, default='Ninguna')
 	password 	= models.CharField(max_length=50)	
 	comandas 	= models.ManyToManyField(Platos, through='Comanda')	
+	
+	def  id_trabajo(self):
+		return '222'
 
 	def get_absolute_url(self):
 		return reverse('persona:cliente-detail', kwargs = {'pk': self.id})
@@ -68,6 +88,10 @@ class Proveedor(models.Model):
 	ruc			= models.IntegerField()
 	direc 		= models.CharField(max_length=100)
 	descripcion = models.TextField()
+
+	def __str__(self):
+		datos=self.nombre
+		return datos
 
 	def get_absolute_url(self):
 		return reverse('persona:proveedor-detail', kwargs = {'pk': self.id})
