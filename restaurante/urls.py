@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import GeneratePDF 
 # from django.contrib.auth import password_reset
  
 urlpatterns = [
@@ -26,7 +27,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('platos/', include('platos.urls')),
     path('comandas/',include('comandas.urls')),
-    path('reporte/',include('reporte.urls')),    
+    path('reporte/',include('reporte.urls')),
+    path('pdf/', GeneratePDF.as_view()),
+
 #     path("reset/password_reset", password_reset, {'template_name':'registration/password_reset_form.html', 
 #         'email_template': 'usuario/password_reset_email.html'}, name='password_reset'),        
 #     path("reset/password_reset_done", views.password_reset_done, {'template_name':'usuario/password_reset_done.html'}, 
