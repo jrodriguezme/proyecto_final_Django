@@ -25,7 +25,7 @@ def Reporte(request):
 
 
 def reserva(request):
-	return render(request,'reserva.html')
+	return render(request,'reservation.html')
 
 class agregar(CreateView):
 	model = Reserva

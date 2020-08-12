@@ -54,64 +54,83 @@
 		        <div class="col-md-7 order-md-last ftco-animate makereservation p-4 p-md-5 pt-5">
 			       	<div class="py-md-5">
 				       	<div class="heading-section ftco-animate mb-5">
-				         	<span class="subheading">.   Agregar</span>
-				            <h2 class="mb-4">NUEVO PLATO</h2>
+				         	<span class="subheading">.   Editar</span>
+				            <h2 class="mb-4">Modificar Reserva</h2>
 				        </div>
-				        {% block body %}
-				        <form enctype="multipart/form-data" action method="post" id="updatePlato" novalidate>
-				        	{% csrf_token %}
-				            <div class="row">
-				                <div class="col-md-6">
-				                    <div class="form-group">
-				     	                <label for="">Nombre del plato:</label><br>
-				     	                {{ form.nombre }}
-				                    </div>
-				                </div>
-				                <div class="col-md-6">
-				                    <div class="form-group">
-				     	                <label for="">Ciudad del plato:</label>
-				     	                {{ form.ciudad }}
-				                    </div>
-				                </div>				                
-				                <div class="col-md-6">
-			                        <div class="form-group">
-				  	                    <label for="">Descripcion:</label>
-				     	                {{ form.descripcion }}
-				          	        </div>
-				                </div>
-				                <div class="col-md-6">
-			                        <div class="form-group">
-				  	                    <label for="">Precio:</label>
-				     	                {{ form.precio }}
-				          	        </div>
-				                </div>			                
-				                <div class="col-md-6">
-				            	    <div class="form-group">
-				                	    <label for="">Imagen</label><br>
-				     	                {{ form.imagen }}
-				                  	</div>
-				                </div>
-				                <div class="col-md-6">
-				                    <div class="form-group">
-				     	                <label for="">portada</label>
-				     	                {{ form.portada }}
-				                    </div>
-				                </div>					                
-				                <div class="col-md-6">
-				                  	<div class="form-group">
-				                    	<label for="">oferta</label>
-				     	                {{ form.oferta }}
-				                  	</div>
-				               	</div>			                        
-				                <div class="col-md-12 mt-3">
-				                	<div class="form-group">
-				                    	<a href="../" class="btn btn-primary py-3 px-5 mr-5">Cancelar edicion y volver</a>
-				                    	<input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
-				                  	</div>
+		                {% block body %}
+			            <form method="POST">
+  		                {% csrf_token %}
+			              <div class="row">
+	                    <!--  <div class="col-md-6">
+	                        <div class="form-group">
+	                          <label for="">Reporte:</label>
+	                          <input type="text" value="{{ form.reporte }}" class="form-control" placeholder="Su reporte">
+	                        </div>
+	                      </div>-->
+	                        <div class="col-md-6">
+			                   <div class="form-group">
+			                    <label for="">Nº  reserva:</label>
+			                    {{ form.num_reserva }}<br> No editable
+			                  </div>
+			                </div>
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Nombre:</label>
+			                    {{ form.nombre }}
+			                  </div>
+			                </div>
+	                      <div class="col-md-6">
+	                        <div class="form-group">
+	                          <label for="">Apellido:</label>
+	                          {{ form.apellido }}
+	                        </div>
+	                      </div>                      
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Correo: </label>
+			                    {{ form.correo }}
+			                  </div>
+			                </div>
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Telefono</label>
+			                    {{ form.telefono }}
+			                  </div>
+			                </div>
+	                      <div class="col-md-6">
+	                        <div class="form-group">
+	                          <label for="">Nª de mesa:</label>
+	                          {{form.numero_mesa}}
+	                        </div>
+	                      </div>  	
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Nª de personas:</label>
+			                    {{form.numero_personas}} 
+			                  </div>
+			                </div>	                      		                
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Fecha:</label><br>
+			                    <input type="Date" id="fecha" name="fecha" class = "form-group" value='{{form.fecha}}'>
+			                  </div>
+			                </div>
+			                <div class="col-md-6">
+			                  <div class="form-group">
+			                    <label for="">Hora</label><br>
+			                    <input type="Time" id="hora" name="hora" class = "form-group" value='{{form.hora}}'>
+			                  </div>
+			                </div>                    
+			                <div class="col-md-12 mt-3">
+				             	<div class="form-group">
+				                   	<a href="../" class="btn btn-primary py-3 px-5 mr-5">Cancelar edicion y volver</a>
+				                   	<input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
 				                </div>
 				            </div>
-				        </form>
-				        {% endblock%}
+			              </div>
+			            </form>
+	          		</div>
+                	{% endblock %}
 				    </div>
 			    </div>
 			</div>
