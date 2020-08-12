@@ -4,17 +4,17 @@ from django.views.generic import View
 from django.template.loader import get_template
 
 from .utils import render_to_pdf #created in step 4
-
+from persona.views import Personal
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
     	template = get_template('pdf/invoice.html')
     	html = template.render()
+    	queryset = Personal.objects.all()
     	context = {
-    		"invoice_id": 123,
-    		"customer_name": "John Cooper",
-    		'today': datetime.today(), 
-            'amount': 39.99,
+    		'object_list': queryset,
+    		'today': datetime.now(),
     	}
+
     	html = template.render(context)
     	pdf = render_to_pdf('pdf/invoice.html', context)
     	if pdf:

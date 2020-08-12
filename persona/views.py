@@ -1,4 +1,7 @@
 from django.contrib import messages
+from django.http import HttpResponse
+from datetime import datetime
+from django.template.loader import get_template
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -7,6 +10,7 @@ from django.views.generic import (
 	CreateView,
 	UpdateView,
 	DeleteView,
+	View,
 	)
 from .models import Personal, Cliente, Proveedor
 # Create your views here.
@@ -35,6 +39,7 @@ class PersonalCreateView(CreateView):
 		'imagen',
 		'password',
 	]
+
 
 class PersonalUpdateView(UpdateView):
 	model = Personal

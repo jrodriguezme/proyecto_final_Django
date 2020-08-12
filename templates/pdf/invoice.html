@@ -41,13 +41,37 @@
         <div class='wrapper'>
             <div class='header'>
                 <hr class='hrItem'/>
-                <p class='title'><b>REPORTE #{{invoice_id }}</b></p>
+                <p class='title'><b>REPORTE DE PERSONAL DE RESTAURANTE</b></p>
             </div>
             <div class='details'>
-                Bill to: America's company<br/>
-                Customer: {{customer_name}}<br/>
-                Amount:  {{amount}}<br/>
-                <hr class='hrItem' />
+                {% block content %}
+                <table style=" padding: 2px; border-collapse: collapse; ">
+                  <tr style="border-bottom: 1px solid #ccc;border-top: 1px solid #ccc; width: 160px;" >
+                    <th style="width:30px">ID</th>
+                    <th style="width:180px;">Apellidos y nombres</th>                    
+                    <th style="width:70px;">Id trabajo</th>
+                    <th style="width:80px;">Cargo</th>
+                    <th style="width:70px;">DNI</th>
+                    <th style="width:60px;">Edad</th>
+                    <th style="width:90px;">Telefono</th>
+                    <th style="width:80px;">Direccion</th>                                
+                  </tr>
+                {% for instance in object_list %}                  
+                  <tr style="border-bottom: 1px solid #ccc;justify-content: center;width: 160px;">
+                    <td style="width:30px;">{{ instance.id }}</td>
+                    <td style="width:200px;">{{ instance.apellido }}, {{ instance.nombre }}</td>
+                    <td style="width:70px;">{{ instance.id_trabajo }}</td>
+                    <td style="width:80px;">{{ instance.cargo }}</td>
+                    <td style="width:100px;">{{ instance.dni }}</td>
+                    <td style="width:70px;">{{ instance.edad }}</td>
+                    <td style="width:90px;">{{ instance.telefono }}</td>
+                    <td style="width:160px;">{{ instance.direc}}</td>                                        
+                  </tr>       
+                {% endfor %}           
+                </table>
+                    {%endblock%}                              
+                    Bill to: America's company<br/>
+            <hr class='hrItem' />
             </div>
         </div>
     </body>
