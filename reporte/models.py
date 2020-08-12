@@ -1,17 +1,10 @@
 from django.db import models
 import datetime
+from django.utils import timezone
+from django.urls import reverse
 # Create your models here.
 from persona.models import Cliente, Comanda
 
-
-num_personas = (
-	(1, '1'),
-	(2, '2'),
-	(3, '3'),
-	(4, '4'),
-	(5, '5'),
-	('mas de 5', 'Mas de 5'),
-)
 
 met_pago = (
 	('tarjeta','TARJETA'),
@@ -27,6 +20,15 @@ desc = (
 	('ninguno','ninguno'),
 )
 
+def hora():
+	hour 				= timezone.now()
+	formatedHour 		= hour.strftime("%H:%M:%S")
+	return formatedHour
+
+def numero():
+	numero 				= Reserva.objects.count()
+	return numero+1
+
 class Reporte(models.Model):
 	fecha 	= datetime.date.today()
 	hora 	= models.DateField()
@@ -39,7 +41,8 @@ class Reporte(models.Model):
 
 
 class Reserva(models.Model):
-	reporte = models.OneToOneField('Reporte', on_delete=models.CASCADE)
+#	reporte = models.OneToOneField('Reporte', on_delete=models.CASCADE, blank=True)
+	num_reserva = models.IntegerField(default=numero)
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
 	correo =  models.EmailField(max_length=100)
@@ -47,5 +50,7 @@ class Reserva(models.Model):
 	fecha = models.DateField()
 	hora = models.TimeField()
 	numero_mesa = models.IntegerField()
-	numero_personas = models.CharField(max_length=100, choices=num_personas, default=1)
+	numero_personas = models.IntegerField(default=1)
 
+	def get_absolute_url(self):
+		return reverse('reporte:detalles_reserva', kwargs = {'pk': self.id})

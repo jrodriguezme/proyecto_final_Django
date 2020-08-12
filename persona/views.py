@@ -144,13 +144,6 @@ class ProveedorDeleteView(DeleteView):
 # 	]
 
 ###############################################################
-# def id_usuario(cargo):
-# 	if cargo == 'administrador':
-# 		id_trabajo = 2002
-# 	elif cargo == 'cajero':
-# 		id_trabajo = cajero
-# 	else:
-# 		id_trabajo = 123456
 
 def loginExtra(request):
 	if request.method == 'POST':
@@ -158,13 +151,16 @@ def loginExtra(request):
 		dni 	= request.POST['username']
 		password= request.POST['password']
 
-		try:
-			person2 = Cliente.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)			
-			person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
-		except Personal.DoesNotExist: 
- 			person = None
-		except Cliente.DoesNotExist:
- 			person2 = None
+		if id_trabajo == '222':
+			try:
+		 		person2 = Cliente.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)			
+			except Cliente.DoesNotExist:
+ 	 			person2 = None
+		else:
+			try:
+		 		person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
+			except Personal.DoesNotExist: 
+ 		 		person = None 			
 
 		if person2 is not None:
  			if id_trabajo =='222':

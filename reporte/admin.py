@@ -1,7 +1,6 @@
 from django.contrib import admin
 
+from .models import Reserva
 # Register your models here.
-#from .models import ReporteDia
 
-
-#admin.site.register(ReporteDia)
+admin.site.register(Reserva)

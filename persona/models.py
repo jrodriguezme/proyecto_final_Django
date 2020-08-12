@@ -76,7 +76,7 @@ class Cliente(models.Model):
 	password 	= models.CharField(max_length=50)	
 	comandas 	= models.ManyToManyField(Platos, through='Comanda')	
 	
-	def  id_trabajo(self):
+	def  id_cliente(self):
 		return '222'
 
 	def get_absolute_url(self):
