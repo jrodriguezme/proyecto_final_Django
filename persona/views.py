@@ -83,6 +83,7 @@ class ClienteCreateView(CreateView):
 		'apellido',
 	#	'id_trabajo',
 		'dni',
+	#	'correo',
 		'edad',
 		'sexo',
 		'direc',
@@ -91,6 +92,8 @@ class ClienteCreateView(CreateView):
 		'password',
 	]
 
+
+
 class ClienteUpdateView(UpdateView):
 	model = Cliente
 	fields = [
@@ -98,6 +101,7 @@ class ClienteUpdateView(UpdateView):
 		'apellido',
 	#	'id_trabajo',
 		'dni',
+	#	'correo',
 		'edad',
 		'sexo',
 		'direc',
@@ -179,20 +183,18 @@ def loginExtra(request):
 		dni 	= request.POST['username']
 		password= request.POST['password']
 
-		if id_trabajo == '222':
-			try:
-		 		person2 = Cliente.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)			
-			except Cliente.DoesNotExist:
- 	 			person2 = None
-		else:
-			try:
-		 		person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
-			except Personal.DoesNotExist: 
- 		 		person = None 			
+		try:
+	 		person2 = Cliente.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)			
+		except Cliente.DoesNotExist:
+ 			person2 = None
+		try:
+	 		person = Personal.objects.get(dni=dni, password=password, id_trabajo=id_trabajo)
+		except Personal.DoesNotExist: 
+	 		person = None 			
 
 		if person2 is not None:
- 			if id_trabajo =='222':
- 				return redirect('CRegistrado')
+ 			if id_trabajo =='222':	
+ 				return render(request, 'usuario/indexCRegistrado.html')
  			else:
  				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
  				return redirect('loginExtra')
@@ -203,22 +205,22 @@ def loginExtra(request):
 
 		if person is not None:
 			if id_trabajo== '987':
-				return redirect('JAlmacen')
+				return	render(request, 'usuario/indexJAlmacen.html')
 
 			elif id_trabajo == '990':
-				return redirect('Administrador')
+				return render(request, 'usuario/indexAdministrador.html')
 			
 			elif id_trabajo == '988':
-				return redirect('JCocina')
+				return render(request, 'usuario/indexJCocina.html')	
 			
 			elif id_trabajo == '654':
-				return redirect('Mozo')	
+				return render(request, 'usuario/indexMozo.html')	
 
 			elif id_trabajo == '321':
-				return redirect('Bartender')	
+				return render(request, 'usuario/indexBartender.html')
 
 			elif id_trabajo == '111':
-				return redirect('Cajero')
+				return render(request, 'usuario/indexCajero.html')
 			
 			else:
 				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
@@ -234,9 +236,10 @@ def registerExtra(request):
 	return redirect( '')
 
 def gracias(email):
+	email=email 
 	send_mail('¡Hola, desde Sumaq Mikhuy Wasi!',
 	'!Bienvenid@ a Sumaq Mikhuy Wasi!, Agradecemos tu confianza, estamos a su servicio.',
-	'sumaqmikhuywasi@gmail.com',['carat24718@brosj.net'], fail_silently=False)
+	'sumaqmikhuywasi@gmail.com',[email], fail_silently=False)
 
 	# 	send_mail(subject, message, from_email, to_list, fail_silently=True)
 	# 	subject = '!Bienvenid@ a Sumaq Mikhuy Wasi!'
