@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
@@ -39,6 +40,10 @@ def register(request):
 				user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
 				user.save();
 				print('user created')
+				send_mail('¡Hola, desde Sumaq Mikhuy Wasi!',
+				'!Bienvenid@ a Sumaq Mikhuy Wasi!, Gracias por elegirnos, agradecemos tu confianza, y ello se verà reflejado en los servicios que te ofrecemos. Estaremos en contacto :3.',
+				'sumaqmikhuywasi@gmail.com',[email], fail_silently=False)
+
 				return redirect('login')
 		else:
 			messages.info(request, 'las contraseñas no coinciden')
@@ -46,7 +51,6 @@ def register(request):
 		return redirect('/')
 	else:
 		return render(request, 'register.html')
-
 
 def logout(request):
 	auth.logout(request)
@@ -103,9 +107,6 @@ def id(request):
 	else:
 		return render(request, 'id.html') 
 
-
-# def loginExtra(request): 
-# 	return render(request, 'loginExtra.html') 
 
 def gerente(request):
  	return render(request, 'indexGerente.html')	

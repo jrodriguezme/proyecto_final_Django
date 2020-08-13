@@ -22,7 +22,8 @@ from .views import(
 	ClienteListView, ClienteDetailView, ClienteCreateView, 
 	ClienteUpdateView, ClienteDeleteView,
 	ProveedorListView, ProveedorDetailView, ProveedorCreateView, 
-	ProveedorUpdateView, ProveedorDeleteView, loginExtra, registerExtra
+	ProveedorUpdateView, ProveedorDeleteView, loginExtra, 
+    registerExtra, gracias, PDFPersonal, PDFCliente, PDFProveedor,
 	) 
 
 app_name = 'persona' 
@@ -35,19 +36,24 @@ urlpatterns = [
     path('personal/create/', PersonalCreateView.as_view(), name='personal-create'),
     path('personal/<int:pk>/update/', PersonalUpdateView.as_view(template_name='persona/personal_update.html'), name='personal-update'),
     path('personal/<int:pk>/delete/', PersonalDeleteView.as_view(), name='personal-delete'),
+    path('personal/pdf/', PDFPersonal.as_view()),
 
     path('cliente/', ClienteListView.as_view(), name='cliente-list'),
     path('cliente/<int:pk>/', ClienteDetailView.as_view(), name='cliente-detail'),
     path('cliente/create/', ClienteCreateView.as_view(), name='cliente-create'),
     path('cliente/<int:pk>/update/', ClienteUpdateView.as_view(template_name='persona/cliente_update.html'), name='cliente-update'),
     path('cliente/<int:pk>/delete/', ClienteDeleteView.as_view(), name='cliente-delete'),
+    path('cliente/pdf/', PDFCliente.as_view()),
 
     path('proveedor/', ProveedorListView.as_view(), name='proveedor-list'),
     path('proveedor/<int:pk>/', ProveedorDetailView.as_view(), name='proveedor-detail'),
     path('proveedor/create/', ProveedorCreateView.as_view(), name='proveedor-create'),
     path('proveedor/<int:pk>/update/', ProveedorUpdateView.as_view(template_name='persona/proveedor_update.html'), name='proveedor-update'),
     path('proveedor/<int:pk>/delete/', ProveedorDeleteView.as_view(), name='proveedor-delete'),
+    path('proveedor/pdf/', PDFProveedor.as_view()),
 
     path('personal/loginExtra/', loginExtra, name="loginExtra"),
     path('personal/registerExtra/', registerExtra, name="registerExtra"), 
+    path('personal/gracias/', gracias, name="gracias"), 
+
 ]

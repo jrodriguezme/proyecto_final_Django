@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from .views import PDFReserva
 app_name = 'reporte' 
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
 	path('reserva/<int:pk>/modificar/', views.modificar.as_view(template_name='reporte/reserva_update.html'), name='modificar_reserva'),
 	path('reserva/<int:pk>/borrar/', views.eliminar.as_view(), name='eliminar_reserva'),
 	path('reserva/modificar',views.modificar2,name='editar_reserva'),
-	path('reserva/borrar',views.eliminar2,name='borrar_reserva')
+	path('reserva/borrar',views.eliminar2,name='borrar_reserva'),
+	path('reserva/pdf', PDFReserva.as_view()),
 ]

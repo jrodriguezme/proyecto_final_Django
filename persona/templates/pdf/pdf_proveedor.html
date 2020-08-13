@@ -4,7 +4,6 @@
 <html>
     <head>
         <h4>Fecha de emision: {{today}}</h4>
-        <img src="{% static 'images/chef-1.jpg'%}">
 
         <title>Title</title>
         <style type="text/css">
@@ -45,31 +44,25 @@
          <div  class=" wrapper ">
             <div class='header'>
                 <hr class='hrItem'/>
-                <p class='title'><b>REPORTE DE PERSONAL DE RESTAURANTE</b></p>
+                <p class='title'><b>REPORTE DE PROVEEDORES DE RESTAURANTE</b></p>
             </div>
             <div class="details">
                 {% block content %}
                 <table style=" padding: 2px; border-collapse: collapse; ">
                   <tr style="border-bottom: 1px solid #ccc;border-top: 1px solid #ccc; width: 160px;" >
-                    <th style="width:30px">ID</th>
-                    <th style="width:180px;">Apellidos y nombres</th>                    
-                    <th style="width:70px;">Id trabajo</th>
-                    <th style="width:80px;">Cargo</th>
-                    <th style="width:70px;">DNI</th>
-                    <th style="width:60px;">Edad</th>
-                    <th style="width:90px;">Telefono</th>
-                    <th style="width:80px;">Direccion</th>                                
+                    <th style="width:50px">ID</th>
+                    <th style="width:160px;">Nombres</th>                    
+                    <th style="width:90px;">RUC</th>
+                    <th style="width:250px;">Descripcion</th>
+                    <th style="width:180px;">Direccion</th>                                
                   </tr>
                 {% for instance in object_list %}                  
                   <tr style="border-bottom: 1px solid #ccc;justify-content: center;width: 160px;">
-                    <td style="width:30px;">{{ instance.id }}</td>
-                    <td style="width:200px;">{{ instance.apellido }}, {{ instance.nombre }}</td>
-                    <td style="width:70px;">{{ instance.id_trabajo }}</td>
-                    <td style="width:80px;">{{ instance.cargo }}</td>
-                    <td style="width:100px;">{{ instance.dni }}</td>
-                    <td style="width:70px;">{{ instance.edad }}</td>
-                    <td style="width:90px;">{{ instance.telefono }}</td>
-                    <td style="width:160px;">{{ instance.direc}}</td>                                        
+                    <td style="width:50px;">{{ instance.id }}</td>
+                    <td style="width:170px;">{{ instance.nombre }}</td>
+                    <td style="width:90px;">{{ instance.ruc }}</td>
+                    <td style="width:250px;">{{ instance.descripcion }}</td>
+                    <td style="width:180px;">{{ instance.direc}}</td>                                        
                   </tr>       
                 {% endfor %}           
                 </table>

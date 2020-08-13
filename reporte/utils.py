@@ -18,5 +18,5 @@ def render_to_pdf(template_src, context_dict={}):
     return None
 
 def fetch_resources(uri, rel):
-	path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
-	return path
+    path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
+    return path

@@ -1,7 +1,11 @@
+{% load static %}
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <h4>Fecha de emision: {{today}}</h4>
+        <img src="{% static 'images/chef-1.jpg'%}">
+
         <title>Title</title>
         <style type="text/css">
             body {
@@ -38,12 +42,12 @@
         </style>
     </head>
     <body>
-        <div class='wrapper'>
+         <div  class=" wrapper ">
             <div class='header'>
                 <hr class='hrItem'/>
                 <p class='title'><b>REPORTE DE PERSONAL DE RESTAURANTE</b></p>
             </div>
-            <div class='details'>
+            <div class="details">
                 {% block content %}
                 <table style=" padding: 2px; border-collapse: collapse; ">
                   <tr style="border-bottom: 1px solid #ccc;border-top: 1px solid #ccc; width: 160px;" >
