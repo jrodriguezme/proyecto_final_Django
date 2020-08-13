@@ -59,6 +59,7 @@
                 {% block body %}
                 <form enctype="multipart/form-data" action method="post" id="updatePlato" novalidate>
                   {% csrf_token %}
+                    {{form.management_form}}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -68,19 +69,19 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                              <label for="">Hora de pedido:</label>
+                              <label for="">Hora de pedido:</label><br>
                               {{ form.hora_marca }}
                             </div>
                         </div>                        
                         <div class="col-md-6">
                               <div class="form-group">
-                                <label for="">Fecha de pedido:</label>
+                                <label for="">Fecha de pedido:</label><br>
                               {{ form.fecha_hoy }}
                             </div>
                         </div>
                         <div class="col-md-6">
                               <div class="form-group">
-                                <label for="">Numero de mesa:</label>
+                                <label for="">Numero de mesa:</label><br>
                               {{ form.numero_mesa }}
                             </div>
                         </div>                      
@@ -96,38 +97,36 @@
                               {{ form.id_camarero }}
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">codigo del plato:</label><br>
-                              {{ form.codigo }}
-                            </div>
-                        </div> 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">codigo del plato:</label><br>
-                              {{ form.codigo }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">nombre del plato:</label><br>
-                              {{ form.platos }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">Numero de platos:</label><br>
-                              {{ form.num_platos }}
-                            </div>
-                        </div>                             
-                       <!--  <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">Id de pedidos</label><br>
-                              {{ form.id_pedido }}
-                            </div>
-                        </div>  -->                             
-                        <div class="col-md-12 mt-3">
+
+                        <div  class="col-md-6">
                           <div class="form-group">
+                              <label for="">Platos a pedir:</label><br>
+                              <div id ="formPlatos">
+                                {{form2.management_form}}
+                                {% for f in form2 %}
+                                <label id="name_plato">Plato:</label><br>
+                                {{f.platos}}<br>
+                                <label id=""cantidad>Cantidad:</label><br>
+                                {{f.num_platos}}<br>
+                                <p></p>
+                                {% endfor %}
+
+                              </div>
+                             <br>
+
+                            </div>
+
+                        </div>
+                        <div id="formu1">
+                          
+                        </div>
+                        
+                       
+                                                    
+                        <div class="col-md-12 mt-3">
+                          <button onclick="return addInput()" class="btn btn-primary ">Agregar plato</button>
+                          <div class="form-group">
+                            <br>
                               <a href="../" class="btn btn-primary py-3 px-5 mr-5">Cancelar edicion y volver</a>
                               <input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
                             </div>
@@ -140,6 +139,78 @@
       </div>
     </div>
   </section>
+
+  <script >
+    function addInput(){
+
+      // <input type="number" name="pedido_set-0-num_platos" value="0" id="id_pedido_set-0-num_platos">
+      var forms=document.querySelector('#id_pedido_set-TOTAL_FORMS');
+      var newselect=document.querySelector('#id_pedido_set-0-platos').cloneNode(true);
+      newselect.name='pedido_set-'+forms.value+'-platos';
+      newselect.id='id_pedido_set-'+forms.value+'-platos';
+      var newinput=document.querySelector('#id_pedido_set-0-num_platos').cloneNode(true);
+      newinput.name='pedido_set-'+forms.value+'-num_platos';
+      newinput.id='id_pedido_set-'+forms.value+'-num_platos';
+      var newinser=document.querySelector('name_plato')
+      
+      document.querySelector('#formPlatos').appendChild(newselect);
+      document.querySelector('#formPlatos').appendChild(newinput);
+
+      var p=document.createElement("p");
+      document.querySelector('#formPlatos').appendChild(p);
+
+      forms.value=parseInt(forms.value)+1;
+      return false;
+    }
+
+  </script>
+
+
+<!--   {% block scripts %}
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script>
+    $(document).ready(function(){
+      console.log("Ready");
+      var div_data="";
+
+      fetchSubjects($(".plato").val());
+
+      $(".plato").change(function(){
+        fetchSubjects($(this).val());
+      });
+
+      $(".add_subject").click(function(){
+        $(".subject-div").append(div_data);
+      })
+
+
+      function fetchSubjects(codigo){
+        $.ajax({
+          url:'http://127.0.0.1:8000/comandas/getFormato',
+          type:'POST',
+          data:{pedido_id:pedido_id}
+        })
+        .done(function(response){
+          div_data="<select class='form-control'>"
+          for (key in response){
+            div_data+="<option value='"+response[key]['pk']+"'>"+response[key]['fields']['platos']+"</option>";
+          }
+          div_data+='</select></div>'
+          console.log(div_data);
+        })
+        .fail(function(){
+          console.log("Fallo")
+        })
+      }
+
+
+
+
+    });
+  </script>
+  {% endblock %} -->
+
 {% endblock%}
+
 
 
