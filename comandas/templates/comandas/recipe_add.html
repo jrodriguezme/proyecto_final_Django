@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // check how many times elements with this name attribute exist: extra_field_*
+
+    </script>
+
+  <!--   <title>Multiformset Demo</title>
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.formset.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".inline.{{ ingredient_form.prefix }}").formset({
+                prefix: "{{ ingredient_form.prefix }}",
+            })
+            $(".inline.{{ instruction_form.prefix }}").formset({
+                prefix: "{{ instruction_form.prefix }}",
+            })
+        })
+    </script> -->
+</head>
+
+<body>
+{% if step1.othercolumsvalue > 0 %}
+            <tr>
+                <th>Checkbox</th>
+                <th>Columname</th>
+            </tr>
+            {% for i in othercolums_count %}
+                <tr>
+                    <td><center><input type="checkbox" name="othercolums_{{ i }}_nullable" id="id_othercolums_{{ i }}_nullable" /></center></td>
+                    <td><center><input type="text" name="othercolums_{{ i }}" required id="id_othercolums_{{ i }}" /></center></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+ <!--    <div>
+        <h1>Add Recipe</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+            <div>
+                {{ form.as_p }}
+            </div>
+            <fieldset>
+                <legend>Recipe Ingredient</legend>
+                {{ ingredient_form.management_form }}
+                {{ ingredient_form.non_form_errors }}
+                {% for form in ingredient_form %}
+                    {{ form.id }}
+                    <div class="inline {{ ingredient_form.prefix }}">
+                        {{ form.description.errors }}
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+
+                        {{ form.DELETE }}
+                    </div>
+                {% endfor %}
+            </fieldset>
+            <fieldset>
+                <legend>Recipe instruction</legend>
+                {{ instruction_form.management_form }}
+                {{ instruction_form.non_form_errors }}
+                {% for form in instruction_form %}
+                    {{ form.id }}
+                    <div class="inline {{ instruction_form.prefix }}">
+                        {{ form.number.errors }}
+                        {{ form.number.label_tag }}
+                        {{ form.number }}
+                        {{ form.description.errors }}
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                    </div>
+                {% endfor %}
+            </fieldset>
+            <input type="submit" value="Add recipe" class="submit" />
+        </form>
+    </div> -->
+</body>
+</html>

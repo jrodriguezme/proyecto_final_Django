@@ -15,19 +15,25 @@ def numero():
 	numero 				= Formato.objects.count()
 	return numero+1
 
-class Pedido(models.Model):
-	codigo				= models.IntegerField(default=numero)
-	platos 				= models.ForeignKey(Platos,on_delete=models.DO_NOTHING) 
-	num_platos 			= models.IntegerField(default=0);
 
-class Formato(Pedido):
-	numero_comanda		= models.IntegerField(default=numero)
-	hora_marca 			= models.CharField(max_length=50, default=hora)
-	fecha_hoy			= models.CharField(max_length=50,default=datetime.date.today())
-	numero_mesa			= models.IntegerField(default=0)
-	numero_comensales	= models.IntegerField(default=0)
-	id_camarero			= models.ForeignKey(Personal,on_delete=models.DO_NOTHING,related_name='camarero',null=False,blank=False)
+class Formato(models.Model):
+	numero_comanda		= models.IntegerField(default=numero,null=True,blank=True)
+	hora_marca 			= models.CharField(max_length=50, default=hora,null=True,blank=True)
+	fecha_hoy			= models.CharField(max_length=50,default=datetime.date.today(),null=True,blank=True)
+	numero_mesa			= models.IntegerField(default=0,null=True,blank=True)
+	numero_comensales	= models.IntegerField(default=0,null=True,blank=True)
+	id_camarero			= models.ForeignKey(Personal,on_delete=models.DO_NOTHING,related_name='camarero',default=None,null=True,blank=True)
+	#pedido_id			= models.ForeignKey(Platos,on_delete=models.DO_NOTHING)
 
 	def get_absolute_url(self):
 		return reverse('comandas:detalles_comandas', kwargs = {'pk': self.id})
 
+class Pedido(models.Model):
+	codigo				= models.IntegerField(default=numero,null=True,blank=True)
+	platos 				= models.ForeignKey(Platos,on_delete=models.DO_NOTHING,default=None,null=True,blank=True) 
+	num_platos			= models.IntegerField(default=0,null=True,blank=True)
+	vincu 				= models.ForeignKey(Formato,on_delete=models.DO_NOTHING,default=None,null=True,blank=True)
+	def __str__(self):
+		return self.platos
+	def get_absolute_url(self):
+		return reverse('comandas:detalles_comandas', kwargs = {'pk': self.id})
