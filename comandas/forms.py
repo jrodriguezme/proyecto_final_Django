@@ -27,6 +27,14 @@ class addForm(forms.ModelForm):
 			'numero_mesa':'mesa',
 			'numero_comensales':'personas',
 			'id_camarero':'codigo de personal',
+		}
+		widgets={
+			'numero_comanda':forms.NumberInput(attrs={'placeholder':'numero de pedido','disabled':'disabled'}),
+			'hora_marca':forms.TextInput(attrs={'placeholder':'hora de pedido','disabled':'disabled'}),
+			'fecha_hoy':forms.TextInput(attrs={'placeholder':'fecha','disabled':'disabled'}),
+			'numero_mesa':forms.NumberInput(attrs={'placeholder':'numero de mesa','min':"0"}),
+			'numero_comensales':forms.NumberInput(attrs={'placeholder':'numero de comensales','min':"0"}),
+			
 
 		}
 
@@ -41,3 +49,8 @@ class pedidoForm(forms.ModelForm):
 			'platos':"Plato pedido",
 			'num_platos':'numero de platos'
 		}
+		widgets={
+			
+			'num_platos':forms.NumberInput(attrs={'placeholder':'numero de comensales','min':"0"})
+		}
+		
