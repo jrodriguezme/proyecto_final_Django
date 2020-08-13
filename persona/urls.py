@@ -24,6 +24,7 @@ from .views import(
 	ProveedorListView, ProveedorDetailView, ProveedorCreateView, 
 	ProveedorUpdateView, ProveedorDeleteView, loginExtra, 
     registerExtra, gracias, PDFPersonal, PDFCliente, PDFProveedor,
+    Bartender, CRegistrado, Cajero, JAlmacen, JCocina, Mozo, Administrador
 	) 
 
 app_name = 'persona' 
@@ -36,6 +37,12 @@ urlpatterns = [
     path('personal/create/', PersonalCreateView.as_view(), name='personal-create'),
     path('personal/<int:pk>/update/', PersonalUpdateView.as_view(template_name='persona/personal_update.html'), name='personal-update'),
     path('personal/<int:pk>/delete/', PersonalDeleteView.as_view(), name='personal-delete'),
+    path('personal/Bartender/', Bartender, name="Bartender"),
+    path('personal/Cajero/', Cajero, name="Cajero"),
+    path('personal/JCocina/', JCocina, name="JCocina"),
+    path('personal/Administrador/', Administrador, name="Administrador"),
+    path('personal/JAlmacen/', JAlmacen, name="JAlmacen"),
+    path('personal/Mozo/', Mozo, name="Mozo"),
     path('personal/pdf/', PDFPersonal.as_view()),
 
     path('cliente/', ClienteListView.as_view(), name='cliente-list'),
@@ -44,6 +51,7 @@ urlpatterns = [
     path('cliente/<int:pk>/update/', ClienteUpdateView.as_view(template_name='persona/cliente_update.html'), name='cliente-update'),
     path('cliente/<int:pk>/delete/', ClienteDeleteView.as_view(), name='cliente-delete'),
     path('cliente/pdf/', PDFCliente.as_view()),
+    path('cliente/CRegistrado/', CRegistrado, name="CRegistrado"),
 
     path('proveedor/', ProveedorListView.as_view(), name='proveedor-list'),
     path('proveedor/<int:pk>/', ProveedorDetailView.as_view(), name='proveedor-detail'),
@@ -53,7 +61,7 @@ urlpatterns = [
     path('proveedor/pdf/', PDFProveedor.as_view()),
 
     path('personal/loginExtra/', loginExtra, name="loginExtra"),
-    path('personal/registerExtra/', registerExtra, name="registerExtra"), 
+    #path('cliente/registerExtra/', registerExtra, name="registerExtra"), 
     path('personal/gracias/', gracias, name="gracias"), 
 
 ]

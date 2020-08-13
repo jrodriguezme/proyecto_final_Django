@@ -22,10 +22,9 @@
         <li class="nav-item"><a href="accounts/login" class="nav-link">Entrar</a></li>            
         {% endif %}
         {% if user.is_authenticated %}
-        <li class="nav-item"><a href="accounts/logout" class="nav-link">Salir</a></li>
+        <li class="nav-item"><a href="/accounts/logout" class="nav-link">Salir</a></li>
         <li class="nav-item"><a href="accounts/administrar" class="nav-link">Administrar</a></li>      
         {% endif%}
-        <li class="nav-item cta"><a href="#" class="nav-link">Reservar Mesa</a></li>            
       </ul>
     </div>
   </div>
@@ -60,11 +59,13 @@
           <li><a href="/persona/personal/"> PERSONAL DE TRABAJO</a></li>
           <li><a href="/persona/cliente/"> CLIENTE</a></li>
           <li><a href="/persona/proveedor/"> PROVEEDORES</a></li>
-          <li><a href="../../../../" >VOLVER A LA PAGINA PRINCIPAL</a></li>
-        </b>
-        <h4>ADMINISTRE LOS PLATOS DE SU EMPRESA:</h4>
+        </b><br>
+        <h4>ADMINISTRE LAS ACCIONES DE SU EMPRESA:</h4>
         <b><li><a href="../platos"> PLATOS</a></li></b>
-        <b><li><a href="../comandas"> COMANDAS.</a></li></b>
+        <b><li><a href="../comandas"> COMANDAS</a></li></b>
+        <b><li><a href="book">RESERVAS DE MESA</a></li></b>
+        <br>
+        <b><a href="../../../../" >VOLVER A LA PAGINA PRINCIPAL</a></b>
       </div>
     </div>
   </div>

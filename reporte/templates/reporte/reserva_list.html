@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
-	    <a class="navbar-brand" href="index.html">Feliciano</a>
+	    <a class="navbar-brand" href=".">Sumaq Mikhuy Wasi</a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="oi oi-menu"></span> Menu
 	    </button>
@@ -26,7 +26,6 @@
                 		<li class="nav-item"><a href="/accounts/administrar" class="nav-link">Administrar</a></li>
               		{% endif %} 
             	{% endif %}            
-            <li class="nav-item cta"><a href="reservation.html" class="nav-link">Book a table</a></li>
 	        </ul>
 	    </div>
     </div>
@@ -37,8 +36,8 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
         	<div class="col-md-9 ftco-animate text-center mb-4">
             	{% if user.is_staff %}
-            		<h1 class="mb-2 bread">Platos</h1>
-            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Platos <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
+            		<h1 class="mb-2 bread">Reservas</h1>
+            		<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Reservas <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar reservas <i class="ion-ios-arrow-forward"></i></span></p>
             	{% else %}
             		<h1 class="mb-2 bread">Usted no es Administrador</h1>
             	{% endif %}
@@ -55,7 +54,7 @@
 			       	<div class="py-md-5">
 				       	<div class="heading-section ftco-animate mb-4">
 				         	<span class="subheading ml-4">Listado</span>
-				            <h2 class="mb-8">PLATOS REGISTRADOS</h2>
+				            <h2 class="mb-8">RESERVAS REGISTRADAS</h2>
 				        </div>
 						<div class="form-group">
 							<ol>
@@ -70,7 +69,7 @@
 				        <div class="col-md-12 mt-3">
 				           	<div class="form-group">	
 								<a href="agregar" class="btn btn-primary py-2 px-3 mr-4 mt-4">Crear nuevo</a>
-								<a href="pdf" class="btn btn-primary py-2 px-3 mr-4 mt-4">Descargar</a>	
+								<a href="/reporte/reserva/pdf/" class="btn btn-primary py-2 px-3 mr-4 mt-4">Descargar</a>	
 								<a href="../" class="btn btn-primary py-2 px-3 mr-4 mt-4">Regresar</a>
 				           	</div>
 				        </div>

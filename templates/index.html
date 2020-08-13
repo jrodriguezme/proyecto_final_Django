@@ -73,7 +73,7 @@
             {% if user.is_authenticated %}            
             <li class="nav-item"><a href="#" class="nav-link">Hola, {{user.first_name}}</a></li>
             {% else %}
-            <li class="nav-item"><a href="accounts/register" class="nav-link">Registrarse</a></li>                 
+            <li class="nav-item"><a href="/persona/cliente/create" class="nav-link">Registrarse</a></li>                 
             <li class="nav-item"><a href="accounts/id" class="nav-link">Entrar</a></li>            
             {% endif %}
             {% if user.is_authenticated %}
@@ -366,62 +366,80 @@
           <div class="col-md-8 ftco-animate makereservation p-4 px-md-5 pb-md-5">
           	<div class="heading-section ftco-animate mb-5 text-center">
 	          	<span class="subheading">Reservar</span>
-	            <h2 class="mb-4">Haga una Reservación</h2>
+	            <h2 class="mb-4">Haga una Reserva</h2>
 	          </div>
-            <form action="#">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Tu Nombre">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="text" class="form-control" placeholder="Tu Email">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Celular</label>
-                    <input type="text" class="form-control" placeholder="Celular">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Fecha</label>
-                    <input type="text" class="form-control" id="book_date" placeholder="Fecha">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Hora</label>
-                    <input type="text" class="form-control" id="book_time" placeholder="Hora">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Personas</label>
-                    <div class="select-wrap one-third">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                        <option value="">Personas</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4+</option>
-                      </select>
+              {% block content %}
+                  <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                      <!--  <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">Reporte:</label>
+                            <input type="text" value="{{ form.reporte }}" class="form-control" placeholder="Su reporte">
+                          </div>
+                        </div>-->
+                          <div class="col-md-6">
+                         <div class="form-group">
+                          <label for="">Nº  reserva:</label>
+                          <input type="text" id="num_reserva" name="num_reserva" class = "form-group" value='{{ form.num_reserva }}'>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Nombre:</label>
+                          <input type="number" id="num_reserva" name="num_reserva" class = "form-group" value='{{ form.nombre }}'>
+                        </div>
+                      </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">Apellido:</label>
+                            <input type="text" id="apellido" name="apellido" class = "form-group" value='{{ form.apellido }}'>
+                          </div>
+                        </div>                      
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Correo: </label>
+                          <input type="text" id="correo" name="correo" class = "form-group" value='{{ form.correo }}'>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Telefono</label>
+                          <input type="text" id="telefono" name="telefono" class = "form-group" value='{{ form.telefono }}'>
+                        </div>
+                      </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">Nª de mesa:</label>
+                            <input type="number" id="mesa" name="mesa" class = "form-group" value='{{form.numero_mesa}}'>
+                          </div>
+                        </div>    
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Nª de personas:</label>
+                          <input type="number" id="personas" name="personas" class = "form-group" value='{{form.numero_personas}}'> 
+                        </div>
+                      </div>                                            
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Fecha:</label><br>
+                          <input type="Date" id="fecha" name="fecha" class = "form-group" value='{{form.fecha}}'>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="">Hora</label><br>
+                          <input type="Time" id="hora" name="hora" class = "form-group" value='{{form.hora}}'>
+                        </div>
+                      </div>                    
+                      <div class="col-md-12 mt-3">
+                        <div class="form-group">
+                          <input type="submit" value="Hacer la reserva" class="btn btn-primary py-3 px-5">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-12 mt-3">
-                  <div class="form-group text-center">
-                    <input type="submit" value="Reservar" class="btn btn-primary py-3 px-5">
-                  </div>
-                </div>
-              </div>
-            </form>
+                  </form>
+                {% endblock %}   
           </div>
         </div>
 			</div>
