@@ -17,8 +17,8 @@ def numero():
 
 
 class Formato(models.Model):
-	numero_comanda		= models.IntegerField(default=numero,null=True,blank=True)
-	hora_marca 			= models.CharField(max_length=50, default=hora,null=True,blank=True)
+	numero_comanda		= models.IntegerField(default=numero,null=True)
+	hora_marca 			= models.CharField(max_length=50, default=hora,null=True)
 	fecha_hoy			= models.CharField(max_length=50,default=datetime.date.today(),null=True,blank=True)
 	numero_mesa			= models.IntegerField(default=0,null=True,blank=True)
 	numero_comensales	= models.IntegerField(default=0,null=True,blank=True)

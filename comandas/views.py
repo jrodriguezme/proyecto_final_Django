@@ -75,7 +75,7 @@ class agregar(CreateView):
 		return self.render_to_response(self.get_context_data(form=form,form2=form2))
 
 	def get_success_url(self):
-		return reverse_lazy('comandas:detalles_comandas',kwargs = {'pk': self.id})
+		return reverse('comandas:agregar_comandas')
 
 
 	# #formato_form=addForm

@@ -98,55 +98,35 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div  class="col-md-6">
                           <div class="form-group">
                               <label for="">Platos a pedir:</label><br>
-                              {{form2.management_form}}
-                              {% for f in form2 %}
-                                {{f}}
+                              <div id ="formPlatos">
+                                {{form2.management_form}}
+                                {% for f in form2 %}
+                                <label id="name_plato">Plato:</label><br>
+                                {{f.platos}}<br>
+                                <label id=""cantidad>Cantidad:</label><br>
+                                {{f.num_platos}}<br>
                                 <p></p>
-                              {% endfor %}
-                            </div>
-                        </div>
-
-                        
-                       <!--  <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">Pedido:</label><br>
-                              <select name="pedido" class="form-control plato">
-                                {% for pedido in form.pedido_id %}
-                                  {{pedido}}
                                 {% endfor %}
-                              </select>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-md-6">
-                            <div class="pedido-div">
-                              
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <div class ="row">
-                                <div class="col-lg-6">
-                                  <button class="add_subject btn btn-primary py-3 px-5 mr-5" type="button">Agregar Plato</button>
-                                </div>
-                                <div class="col-lg-6">
-                                  <button class="remove_subject btn btn-primary py-3 px-5 mr-5" type="button">Borrar Plato</button>
-                                </div>
-                              </div>
-                              
-                            </div>
-                        </div> -->
 
-                       <!--  <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="">Id de pedidos</label><br>
-                              {{ form.id_pedido }}
+                              </div>
+                             <br>
+
                             </div>
-                        </div>  -->                             
+
+                        </div>
+                        <div id="formu1">
+                          
+                        </div>
+                        
+                       
+                                                    
                         <div class="col-md-12 mt-3">
+                          <button onclick="return addInput()" class="btn btn-primary ">Agregar plato</button>
                           <div class="form-group">
+                            <br>
                               <a href="../" class="btn btn-primary py-3 px-5 mr-5">Cancelar edicion y volver</a>
                               <input type="submit" name="Grabar" class="btn btn-primary py-3 px-5">
                             </div>
@@ -159,6 +139,33 @@
       </div>
     </div>
   </section>
+
+  <script >
+    function addInput(){
+
+      // <input type="number" name="pedido_set-0-num_platos" value="0" id="id_pedido_set-0-num_platos">
+      var forms=document.querySelector('#id_pedido_set-TOTAL_FORMS');
+      var newselect=document.querySelector('#id_pedido_set-0-platos').cloneNode(true);
+      newselect.name='pedido_set-'+forms.value+'-platos';
+      newselect.id='id_pedido_set-'+forms.value+'-platos';
+      var newinput=document.querySelector('#id_pedido_set-0-num_platos').cloneNode(true);
+      newinput.name='pedido_set-'+forms.value+'-num_platos';
+      newinput.id='id_pedido_set-'+forms.value+'-num_platos';
+      var newinser=document.querySelector('name_plato')
+      
+      document.querySelector('#formPlatos').appendChild(newselect);
+      document.querySelector('#formPlatos').appendChild(newinput);
+
+      var p=document.createElement("p");
+      document.querySelector('#formPlatos').appendChild(p);
+
+      forms.value=parseInt(forms.value)+1;
+      return false;
+    }
+
+  </script>
+
+
 <!--   {% block scripts %}
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script>
