@@ -1,9 +1,11 @@
+from django.conf import settings 
 from django.contrib import messages
 from django.http import HttpResponse
 from datetime import datetime
 from django.template.loader import get_template
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.core.mail import send_mail
 from django.views.generic import (
 	ListView,
 	DetailView,
@@ -39,7 +41,6 @@ class PersonalCreateView(CreateView):
 		'imagen',
 		'password',
 	]
-
 
 class PersonalUpdateView(UpdateView):
 	model = Personal
@@ -101,6 +102,7 @@ class ClienteUpdateView(UpdateView):
 		'direc',
 		'vip',
 		'especif_vip',
+		'password',
 	]
 	template_name_suffix = '_update_form'
 
@@ -209,3 +211,87 @@ def loginExtra(request):
 
 def registerExtra(request):
 	return render(request, 'registerExtra.html')
+
+def gracias(email):
+	send_mail('¡Hola, desde Sumaq Mikhuy Wasi!',
+	'!Bienvenid@ a Sumaq Mikhuy Wasi!, Agradecemos tu confianza, estamos a su servicio.',
+	'sumaqmikhuywasi@gmail.com',['carat24718@brosj.net'], fail_silently=False)
+
+	# 	send_mail(subject, message, from_email, to_list, fail_silently=True)
+	# 	subject = '!Bienvenid@ a Sumaq Mikhuy Wasi!'
+	# 	message = '!Bienvenid@ a Sumaq Mikhuy Wasi!, Gracias por su registro y adquisición en nuestro restaurante. Agradecemos tu confianza, estamos a su servicio.'
+	# 	from_email = settings.EMAIL_HOST_USER
+	# 	to_list = [email]
+	# 	send_mail(subject, message, from_email, to_list, fail_silently=True)
+	return render(request, "send/gracias.html")
+
+
+
+class PDFPersonal(View):
+    def get(self, request, *args, **kwargs):
+    	template = get_template('pdf/pdf_personal.html')
+    	html = template.render()
+    	queryset = Personal.objects.all()
+    	context = {
+    		'object_list': queryset,
+    		'today': datetime.now(),
+    	}
+
+    	html = template.render(context)
+    	pdf = render_to_pdf('pdf/pdf_personal.html', context)
+    	if pdf:
+    		response = HttpResponse(pdf, content_type='application/pdf')
+    		filename = "Personal_%s.pdf" %("123456789")
+    		content = "inline; filename=%s" %(filename)
+    		download = request.GET.get("download")
+    		if download:
+    			content = "attachment; filename=%s"%(filename)
+    		response ['Content-Disposition']= content	
+    		return response
+    	return HttpResponse("Not found")
+
+class PDFCliente(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('pdf/pdf_cliente.html')
+        html = template.render()
+        queryset = Cliente.objects.all()
+        context = {
+            'object_list': queryset,
+            'today': datetime.now(),
+        }
+
+        html = template.render(context)
+        pdf = render_to_pdf('pdf/pdf_cliente.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Cliente_%s.pdf" %("123456789")
+            content = "inline; filename=%s" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename=%s"%(filename)
+            response ['Content-Disposition']= content   
+            return response
+        return HttpResponse("Not found")
+
+class PDFProveedor(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('pdf/pdf_proveedor.html')
+        html = template.render()
+        queryset = Proveedor.objects.all()
+        context = {
+            'object_list': queryset,
+            'today': datetime.now(),
+        }
+
+        html = template.render(context)
+        pdf = render_to_pdf('pdf/pdf_proveedor.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Proveedor_%s.pdf" %("123456789")
+            content = "inline; filename=%s" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename=%s"%(filename)
+            response ['Content-Disposition']= content   
+            return response
+        return HttpResponse("Not found")
