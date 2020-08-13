@@ -41,21 +41,21 @@ class Personal(models.Model):
 		datos=self.nombre+" "+self.apellido
 		return datos
 
-	def id_trabajo(self):
-		if self.cargo == 'administrador':
-			return '2002'
-		elif self.cargo == 'jefe de cocina':
-			return '998'
-		elif self.cargo == 'jefe de almacen':
-			return '987'
-		elif self.cargo == 'cajero':
-			return '111'								
-		elif self.cargo == 'mesero':
-			return '654'
-		elif self.cargo == 'bartender':
-			return '321'						
-		else:
-			return '1000'
+	# def id_trabajo(self):
+	# 	if self.cargo == 'administrador':
+	# 		return '2002'
+	# 	elif self.cargo == 'jefe de cocina':
+	# 		return '998'
+	# 	elif self.cargo == 'jefe de almacen':
+	# 		return '987'
+	# 	elif self.cargo == 'cajero':
+	# 		return '111'								
+	# 	elif self.cargo == 'mesero':
+	# 		return '654'
+	# 	elif self.cargo == 'bartender':
+	# 		return '321'						
+	# 	else:
+	# 		return '1000'
 
 	def get_absolute_url(self):
 		return reverse('persona:personal-detail', kwargs = {'pk': self.id})

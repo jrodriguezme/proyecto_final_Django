@@ -1,6 +1,7 @@
 from django.conf import settings 
 from django.contrib import messages
 from django.http import HttpResponse
+from .utils import render_to_pdf
 from datetime import datetime
 from django.template.loader import get_template
 from django.shortcuts import render, get_object_or_404, redirect
@@ -151,6 +152,26 @@ class ProveedorDeleteView(DeleteView):
 # 	]
 
 ###############################################################
+def Bartender(request):
+	return render(request, 'usuario/indexBartender.html')
+
+def CRegistrado(request):
+	return render(request, 'usuario/indexCRegistrado.html')
+
+def Cajero(request):
+	return render(request, 'usuario/indexCajero.html')
+
+def JAlmacen(request):
+	return	render(request, 'usuario/indexJAlmacen.html')
+
+def Mozo(request):
+	return render(request, 'usuario/indexMozo.html')	
+
+def JCocina(request):
+	return render(request, 'usuario/indexJCocina.html')	
+ 
+def Administrador(request):
+	return render(request, 'usuario/indexAdministrador.html')
 
 def loginExtra(request):
 	if request.method == 'POST':
@@ -171,7 +192,7 @@ def loginExtra(request):
 
 		if person2 is not None:
  			if id_trabajo =='222':
- 				return render(request, 'usuario/indexCRegistrado.html')
+ 				return redirect('CRegistrado')
  			else:
  				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
  				return redirect('loginExtra')
@@ -182,22 +203,22 @@ def loginExtra(request):
 
 		if person is not None:
 			if id_trabajo== '987':
-				return render(request, 'usuario/indexJAlmacen.html')
+				return redirect('JAlmacen')
 
 			elif id_trabajo == '990':
-				return render(request, 'usuario/indexAdministrador.html')
+				return redirect('Administrador')
 			
 			elif id_trabajo == '988':
-				return render(request, 'usuario/indexJCocina.html')
+				return redirect('JCocina')
 			
 			elif id_trabajo == '654':
-				return render(request,'usuario/indexMozo.html')	
+				return redirect('Mozo')	
 
 			elif id_trabajo == '321':
-				return render(request, 'usuario/indexBartender.html')	
+				return redirect('Bartender')	
 
 			elif id_trabajo == '111':
-				return render(request, 'usuario/indexCajero.html')
+				return redirect('Cajero')
 			
 			else:
 				messages.info(request, 'Algún dato es incorrecto. Vuelva a intentarlo.')
@@ -210,7 +231,7 @@ def loginExtra(request):
 
 
 def registerExtra(request):
-	return render(request, 'registerExtra.html')
+	return redirect( '')
 
 def gracias(email):
 	send_mail('¡Hola, desde Sumaq Mikhuy Wasi!',
@@ -295,3 +316,5 @@ class PDFProveedor(View):
             response ['Content-Disposition']= content   
             return response
         return HttpResponse("Not found")
+
+
