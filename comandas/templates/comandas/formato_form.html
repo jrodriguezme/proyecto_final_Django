@@ -24,7 +24,7 @@
         {% endif %}
         {% if user.is_authenticated %}
         <li class="nav-item"><a href="accounts/logout" class="nav-link">Salir</a></li>
-        <li class="nav-item"><a href="accounts/administrar" class="nav-link">Administrar</a></li>      
+        <li class="nav-item"><a href="../../accounts/administrar" class="nav-link">Administrar</a></li>      
         {% endif%}
       </ul>
     </div>
@@ -37,7 +37,7 @@
           <div class="col-md-9 ftco-animate text-center mb-4">
               {% if user.is_staff %}
                 <h1 class="mb-2 bread">Comandas</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio <i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="../">Comandas<i class="ion-ios-arrow-forward"></i></a></span> <span>Administrar Platos <i class="ion-ios-arrow-forward"></i></span></p>
               {% else %}
                 <h1 class="mb-2 bread">Usted no es Administrador</h1>
               {% endif %}
@@ -110,7 +110,7 @@
                                 {{f.num_platos}}<br>
                                 <p></p>
                                 {% endfor %}
-
+                                
                               </div>
                              <br>
 

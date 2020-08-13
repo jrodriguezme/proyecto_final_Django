@@ -33,7 +33,5 @@ class Pedido(models.Model):
 	platos 				= models.ForeignKey(Platos,on_delete=models.DO_NOTHING,default=None,null=True,blank=True) 
 	num_platos			= models.IntegerField(default=0,null=True,blank=True)
 	vincu 				= models.ForeignKey(Formato,on_delete=models.DO_NOTHING,default=None,null=True,blank=True)
-	def __str__(self):
-		return self.platos
 	def get_absolute_url(self):
 		return reverse('comandas:detalles_comandas', kwargs = {'pk': self.id})

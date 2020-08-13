@@ -99,11 +99,53 @@ class agregar(CreateView):
 	
 
 
-class detalles(DetailView):
-	model=Formato
+def detalles(request,*args,**kwargs):
+	modelo1=Formato.objects.all()
+	modelo2=Pedido.objects.all()
+	pru=str(request)
+	x= pru.index("d")
+	i=x+4
+	num=""
+	while i<len(pru):
+		if pru[i]!="/":
+			num=num+pru[i]
+			i=i+1
+		else:
+			i=len(pru)
+	num=int(num)
+	modelo3=[]
+	modelo4=[]
+	texto="Formato object ("+str(num)+")"
+
+	for model in modelo1:
+		if str(model) == str(texto):
+			modelo3=model
+	
+	for model in modelo2:
+		print(model.codigo)
+		if int(modelo3.numero_comanda) ==int(model.codigo):
+			modelo4.append(model)
+			
+	print(modelo3.numero_comanda)
+	#modelo1=Formato.objects.filter(numero_comanda=num)
+	#print(modelo1.numero_comanda)
+	return render(request,'comandas/formato_detail.html',{'modelo3':modelo3,'modelo4':modelo4})
+
 
 class listar(ListView):
-	model=Formato
+	model=Pedido
+	template_name = 'comandas/formato_lista.html'
+	context_object_name = 'Formato'
+	def get_context_data(self, **kwargs):
+		context = super(listar, self).get_context_data(**kwargs)
+		context['Pedido'] = Pedido.objects.all()
+		return context
+
+	def get_queryset(self):
+		lista = Formato.objects.all()
+		return lista
+
+
 
 def modificar2(request):
 	object_list=Formato.objects.all()
